@@ -1,0 +1,3 @@
+name: Alexander Paulsell
+hobby: Sleeping
+something interesting: I got stuck in a dishwasher when I was little.
