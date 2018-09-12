@@ -1,3 +1,7 @@
 name: Alexander Paulsell
 hobby: Sleeping
 something interesting: I got stuck in a dishwasher when I was little.
+
+name: Gildardo ORozco
+hobby: quadcompters
+something interesting about me : I'm from Mexico
