@@ -5,3 +5,7 @@ something interesting: I got stuck in a dishwasher when I was little.
 name: Sergio Llopis Donate
 hobby: Track and Field and Hiking
 something interesting about yourself: I am from Spain
+
+name: Chino Abatol
+hobby: Playing video games and reading books
+something interesting about yourself: I was bit in the head by a monkey when I was 6.
