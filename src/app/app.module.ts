@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemlistComponent } from './itemlist/itemlist.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PostsComponent,
     UsersComponent,
     DetailsComponent,
+    ItemlistComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<h1>Items</h1>
+
+<ul>
+  <li *ngFor="let item of items$">
+    <a routerLink="">{{ item.title }}</a>
+
+    <p>{{ item.body }}</p>
+  </li>
+</ul>
