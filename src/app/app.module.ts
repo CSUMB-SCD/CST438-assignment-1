@@ -9,6 +9,8 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PostsComponent,
     UsersComponent,
     DetailsComponent,
+    CheckoutComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,
