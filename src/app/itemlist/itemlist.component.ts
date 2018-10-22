@@ -14,7 +14,7 @@ export class ItemlistComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getPosts().subscribe(
+    this.data.getItems().subscribe(
       data => this.items$ = data
     );
   }

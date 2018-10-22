@@ -2,8 +2,10 @@
 
 <ul>
   <li *ngFor="let item of items$">
-    <a routerLink="">{{ item.title }}</a>
-
-    <p>{{ item.body }}</p>
+    <a>{{ item.name }}</a>
+    <ul>
+      <li>${{ item.price }}</li>
+      <li>{{ item.stock }}</li>
+    </ul>
   </li>
 </ul>
