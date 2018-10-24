@@ -2,10 +2,11 @@
 
 <ul>
   <li *ngFor="let item of items$">
-    <a>{{ item.name }}</a>
+    <a routerLink="/details/{{item.id}}">{{ item.name }}</a>
     <ul>
       <li>${{ item.price }}</li>
-      <li>{{ item.stock }}</li>
+      <li>In Stock: {{ item.stock }}</li>
     </ul>
+    <a routerLink="/checkout" class="button">Buy</a>
   </li>
 </ul>

@@ -15,8 +15,11 @@ export class ItemlistComponent implements OnInit {
 
   ngOnInit() {
     this.data.getItems().subscribe(
-      data => this.items$ = data
+      data => this.items$ = this.test(data)
     );
+  }
+  test(data) {
+    return data;
   }
 
 }
