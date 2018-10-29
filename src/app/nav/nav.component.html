@@ -6,7 +6,7 @@
       </a>
     </li>
     <li>
-      <a routerLink="components" routerLinkActive="activated">
+      <a [routerLink]="[{ outlets: { subnav: ['test'] } }]" routerLinkActive="activated">
         Components
       </a>
     </li>

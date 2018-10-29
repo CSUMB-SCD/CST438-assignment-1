@@ -8,9 +8,19 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavCompComponent implements OnInit {
 
+  components$: Object;
+
   constructor() { }
 
   ngOnInit() {
+    this.components$ = [
+      'CPU',
+      'Chassis',
+      'Graphics Card',
+      'Mother Board',
+      'Power supply',
+      'Ram',
+    ];
   }
 
 }
