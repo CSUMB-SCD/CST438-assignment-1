@@ -1,4 +1,4 @@
-import { ItemlistComponent } from './itemlist/itemlist.component';
+import { ProductlistComponent } from './productlist/productlist.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
@@ -15,12 +15,8 @@ const routes: Routes = [
     component: DetailsComponent
   },
   {
-    path: 'posts',
-    component: PostsComponent
-  },
-  {
-    path: 'itemlist',
-    component: ItemlistComponent
+    path: 'components',
+    component: ProductlistComponent
   },
 ];
 

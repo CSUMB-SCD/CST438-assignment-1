@@ -9,7 +9,9 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ItemlistComponent } from './itemlist/itemlist.component';
+import { NavComponent } from './nav/nav.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { NavCompComponent } from './nav-comp/nav-comp.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ItemlistComponent } from './itemlist/itemlist.component';
     PostsComponent,
     UsersComponent,
     DetailsComponent,
-    ItemlistComponent,
+    NavComponent,
+    ProductlistComponent,
+    NavCompComponent,
   ],
   imports: [
     BrowserModule,

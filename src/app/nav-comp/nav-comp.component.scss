@@ -1,0 +1,48 @@
+nav {
+  background: #171d22;
+
+  width: 100%;
+  display: flex;
+
+  ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: auto;
+
+      li {
+          height: 50px;
+          min-width: 50px;
+
+          .activated {
+            background-color: #36454f;
+            background-origin: padding-box;
+          }
+
+          a {
+              white-space: nowrap;
+              color: white;
+              height: inherit;
+              min-width: inherit;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              line-height: 50px;
+              border-right: solid 1px #abbbc6;
+              padding-left: 10px;
+              padding-right: 10px;
+          }
+
+          input[type=text] {
+              padding-left: 10px;
+              margin-top: 0;
+              margin-right: 0;
+              border: none;
+              font-size: 17px;
+              height: inherit;
+          }
+      }
+  }
+
+}

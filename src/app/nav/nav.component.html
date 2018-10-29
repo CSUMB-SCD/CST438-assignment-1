@@ -1,0 +1,37 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="components" routerLinkActive="activated">
+        Components
+      </a>
+    </li>
+    <li>
+      <a routerLink="brand" routerLinkActive="activated">
+        <i>Brand</i>
+      </a>
+    </li>
+    <li>
+      <input type="text" placeholder="Search...">
+    </li>
+    <li>
+      <a class="material-icons" routerLink="productlist">
+        search
+      </a>
+    </li>
+    <li>
+      <a routerLink="cart" [class.activated]="currentUrl == '/cart'">
+        <i>Cart</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="Signin" [class.activated]="currentUrl == '/signin'">
+        <i>Sign in</i>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -3,19 +3,19 @@ import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-itemlist',
-  templateUrl: './itemlist.component.html',
-  styleUrls: ['./itemlist.component.scss']
+  selector: 'app-productlist',
+  templateUrl: './productlist.component.html',
+  styleUrls: ['./productlist.component.scss']
 })
 
-export class ItemlistComponent implements OnInit {
-  items$: Object;
+export class ProductlistComponent implements OnInit {
+  products$: Object;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getItems().subscribe(
-      data => this.items$ = this.test(data)
+      data => this.products$ = this.test(data)
     );
   }
   test(data) {
