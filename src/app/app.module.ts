@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { NavCompComponent } from './nav-comp/nav-comp.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { NavCompComponent } from './nav-comp/nav-comp.component';
     NavComponent,
     ProductlistComponent,
     NavCompComponent,
+    CheckoutComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,
