@@ -1,9 +1,9 @@
+import { ItemDetailsComponent } from './item-details/item-details.component';
 import { NavCompComponent } from './nav-comp/nav-comp.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
-import { DetailsComponent } from './details/details.component';
 import { PostsComponent } from './posts/posts.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    component: DetailsComponent
+    component: ItemDetailsComponent
   },
   {
     path: 'components',
