@@ -8,18 +8,21 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavCompComponent implements OnInit {
 
+  currentUrl: string;
   components$: Object;
 
-  constructor() { }
+  constructor(private router: Router) {
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
+  }
 
   ngOnInit() {
     this.components$ = [
-      'CPU',
       'Chassis',
-      'Graphics Card',
       'Mother Board',
-      'Power supply',
+      'Processor',
+      'Graphics Card',
       'Ram',
+      'Power supply',
     ];
   }
 

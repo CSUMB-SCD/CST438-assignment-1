@@ -4,7 +4,6 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
-import { PostsComponent } from './posts/posts.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 
@@ -18,20 +17,23 @@ const routes: Routes = [
     component: ItemDetailsComponent
   },
   {
-    path: 'components',
+    path: 'products',
     component: ProductlistComponent
   },
   {
-    path: 'test',
-    component: NavCompComponent,
-    outlet: 'subnav',
+    path: 'products/:component',
+    component: ProductlistComponent
+  },
+  {
+    path: 'cart',
+    component: CheckoutComponent
   },
   {
     path: 'checkout',
     component: CheckoutComponent
   },
   {
-    path: 'thank-you',
+    path: 'thankyou',
     component: ThankYouComponent
   },
 ];

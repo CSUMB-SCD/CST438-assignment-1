@@ -20,7 +20,7 @@ export class DataService {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
 
-  getItems() {
-    return this.http.get('http://127.0.0.1:8081/Items');
+  getProducts() {
+    return this.http.get('http://127.0.0.1:8081/Product');
   }
 }

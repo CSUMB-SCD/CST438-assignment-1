@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { NavCompComponent } from '../nav-comp/nav-comp.component';
 
 @Component({
   selector: 'app-productlist',
@@ -10,17 +12,22 @@ import { Observable } from 'rxjs';
 
 export class ProductlistComponent implements OnInit {
   products$: Object;
+  component$: String;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe(
+      params => this.component$ = params.component
+    );
+   }
 
   ngOnInit() {
-    return;
-    this.data.getItems().subscribe(
-      data => this.products$ = this.test(data)
+    this.data.getProducts().subscribe(
+      data => this.products$ = this.filter(data)
     );
   }
-  test(data) {
+
+  filter(data) {
+
     return data;
   }
-
 }

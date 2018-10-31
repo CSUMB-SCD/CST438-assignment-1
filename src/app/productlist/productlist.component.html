@@ -1,12 +1,22 @@
-<h1>Items</h1>
+<app-nav-comp></app-nav-comp>
+<div id="content">
+  <h1>Items</h1>
 
-<ul>
-  <li *ngFor="let product of products$">
-    <a routerLink="/details/{{product.id}}">{{ product.name }}</a>
-    <ul>
-      <li>${{ product.price }}</li>
-      <li>In Stock: {{ product.stock }}</li>
-    </ul>
-    <a routerLink="/checkout" class="button">Buy</a>
-  </li>
-</ul>
+  <ul>
+    <li class="product" *ngFor="let product of products$">
+      <a routerLink="/details/{{product.id}}">{{ product.name }}</a>
+      <ul routerLink="/details/:id">
+        <li>${{ product.price }}</li>
+        <li>In Stock: {{ product.stock }}</li>
+      </ul>
+      <ul>
+        <li>
+          <a routerLink="/checkout">Buy</a>
+        </li>
+        <li>
+          <a routerLink="/checkout">Add To Cart</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -1,20 +1,15 @@
 <nav>
   <ul>
     <li>
-      <a routerLink="/">
-        <i class="material-icons">supervised_user_circle</i>
+      <a routerLink="" routerLinkActive="/">
+        <i>Home</i>
       </a>
     </li>
     <li>
-      <a [routerLink]="[{ outlets: { subnav: ['test'] } }]" routerLinkActive="activated">
-        Components
+      <a routerLink="products" routerLinkActive="activated">
+        <i>Components</i>
       </a>
-    </li>
-    <li>
-      <a routerLink="brand" routerLinkActive="activated">
-        <i>Brand</i>
-      </a>
-    </li>
+    </li><!--
     <li>
       <input type="text" placeholder="Search...">
     </li>
@@ -22,9 +17,9 @@
       <a class="material-icons" routerLink="productlist">
         search
       </a>
-    </li>
+    </li>-->
     <li>
-      <a routerLink="cart" [class.activated]="currentUrl == '/cart'">
+      <a routerLink="cart" routerLinkActive="activated">
         <i>Cart</i>
       </a>
     </li>
