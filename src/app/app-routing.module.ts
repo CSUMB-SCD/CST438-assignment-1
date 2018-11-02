@@ -1,3 +1,4 @@
+import { SignInComponent } from './sign-in/sign-in.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { NavCompComponent } from './nav-comp/nav-comp.component';
 import { ProductlistComponent } from './productlist/productlist.component';
@@ -6,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+
 
 const routes: Routes = [
   {
@@ -35,6 +37,10 @@ const routes: Routes = [
   {
     path: 'thankyou',
     component: ThankYouComponent
+  },
+  {
+    path: 'signin',
+    component: SignInComponent
   },
 ];
 

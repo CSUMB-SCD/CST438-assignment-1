@@ -12,6 +12,7 @@ import { NavCompComponent } from './nav-comp/nav-comp.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     CheckoutComponent,
     ThankYouComponent,
     ItemDetailsComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
