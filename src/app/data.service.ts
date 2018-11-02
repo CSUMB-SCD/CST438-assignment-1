@@ -19,4 +19,8 @@ export class DataService {
   getPosts() {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
+
+  getProducts() {
+    return this.http.get('http://127.0.0.1:8081/Product');
+  }
 }
