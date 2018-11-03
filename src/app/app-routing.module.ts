@@ -11,7 +11,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: UsersComponent
   },
   {

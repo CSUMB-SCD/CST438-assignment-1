@@ -1,36 +1,46 @@
 
     nav {
-      background: #2c3840;
+      background: #c0780b;
       width: 100%;
       display: flex;
 
       ul {
           display: flex;
           list-style-type: none;
-          padding: 0;
+          padding-right: 40px;
           margin: auto;
 
           li {
 
               .activated {
-                background-color: #41525e;
-                background-origin: padding-box;
+
+                text-decoration: underline;
+                // padding: 10px;
+                // font-size: 26px;
+                color:black;
+                position: relative;
+                // box-sizing: border-box;
+                transition: all 500ms ease;
+                // text-color:black;
+                // background-origin: padding-box;
               }
 
               a {
-                  white-space: nowrap;
+                  padding: 36px;
+                  // white-space: nowrap;
                   color: white;
-                  height: inherit;
-                  min-width: inherit;
+                  // height: inherit;
+                  // min-width: inherit;
                   text-align: center;
-                  text-decoration: none;
+                  // text-decoration: none;
                   display: inline-block;
+                  // padding : 80px;
                   font-size: 16px;
-                  line-height: 50px;
-                  height: 50px;
-                  min-width: 150px;
-                  margin-left: -10px;
-                  clip-path: polygon(10px 0, 100% 0, 140px 100%, 0 100%);
+                  // line-height: 50px;
+                  // height: 50px;
+                  // min-width: 150px;
+                  // margin-left: -10px;
+                  // clip-path: polygon(10px 0, 100% 0, 140px 100%, 0 100%);
               }
 
               input[type=text] {

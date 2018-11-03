@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { NavCompComponent } from '../nav-comp/nav-comp.component';
-import { ActivatedRoute } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -15,7 +14,9 @@ export class SignInComponent implements OnInit {
   constructor(private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 
 }
+
+
