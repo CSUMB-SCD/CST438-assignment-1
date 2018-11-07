@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\checkout",
+    "\\src\\app\\nav",
+    "\\src\\app\\nav-comp",
+    "\\src\\app\\thank-you",
+    "\\src\\assets",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\nav-comp\\nav-comp.component.scss",
+  "PreviewInSolutionExplorer": false
+}
