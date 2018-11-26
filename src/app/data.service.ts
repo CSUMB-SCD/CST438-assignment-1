@@ -19,4 +19,8 @@ export class DataService {
   getPosts() {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
+
+  getItemDetails(itemId) {
+    return this.http.get('https://proj-products.herokuapp.com/Product' + itemId);
+  }
 }

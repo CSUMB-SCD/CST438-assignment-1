@@ -1,3 +1,22 @@
-<p>
-  item-details works!
-</p>
+<div id="wrapper">
+    <h1>Item Name {{ items$.name }}</h1>
+  <div id="left">
+    <!-- <h1> images module </h1> -->
+    <app-carousel></app-carousel>
+  </div>
+
+  <div id="right">
+    <ul>
+      <li><strong>Stock:</strong> {{ items$.stock }}</li>
+      <li><strong>Price:</strong> {{ items$.price }}</li>
+      <li><strong>Manufacturer:</strong> {{ items$.manufacturer.name }}</li>
+      <li><strong>Add To Cart</strong></li>
+
+    </ul>
+  </div>
+
+
+</div>
+<div>
+  <p>description {{items$.description }}</p>
+</div>

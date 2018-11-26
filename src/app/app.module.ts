@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsComponent } from './items/items.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     DetailsComponent,
     ItemsComponent,
     ItemDetailsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
