@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
@@ -10,10 +10,13 @@ import { DataService } from '../data.service';
 export class ItemDetailsComponent implements OnInit {
 
   items$: Object;
+  currentUrl: string;
 
-  constructor(private route: ActivatedRoute, private data: DataService) {
+  constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
     this.route.params.subscribe(
-       params => this.items$ = params.id );
+       params => this.items$ = params.id
+    );
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
  }
 
   ngOnInit() {
@@ -21,6 +24,7 @@ export class ItemDetailsComponent implements OnInit {
       data => this.items$ = this.filter(data)
     );
   }
+
   filter(data) {
 
     return data;

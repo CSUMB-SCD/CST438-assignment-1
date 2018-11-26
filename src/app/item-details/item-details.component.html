@@ -10,9 +10,9 @@
       <li><strong>Stock:</strong> {{ items$.stock }}</li>
       <li><strong>Price:</strong> {{ items$.price }}</li>
       <li><strong>Manufacturer:</strong> {{ items$.manufacturer.name }}</li>
-      <li><strong>Add To Cart</strong></li>
-
     </ul>
+    <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'">
+      <i class="material-icons">shopping_cart</i> Add to cart </a>
   </div>
 
 
