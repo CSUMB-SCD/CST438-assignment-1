@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  private messageSource = new BehaviorSubject<Object>(null);
+  currentMessage = this.messageSource.asObservable();
+
   constructor(private http: HttpClient) { }
+
+  changeMessage(product: Object) {
+    this.messageSource.next(product);
+  }
 
   getUsers() {
     return this.http.get('https://jsonplaceholder.typicode.com/users');

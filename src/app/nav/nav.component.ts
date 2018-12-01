@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../data.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -11,10 +13,21 @@ export class NavComponent implements OnInit {
 
   currentUrl: string;
 
-  constructor(private router: Router) {
+  message: string;
+
+  constructor(private data: DataService, private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.logtest(message));
+  }
 
+  logtest(text: Object) {
+
+    console.log('yayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+    console.log(text);
+
+    return text;
+  }
 }
