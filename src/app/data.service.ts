@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,13 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get('http://127.0.0.1:8081/Product');
+    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
+
+//  addHero (cart: JSON): Observable<JSON> {
+//    return this.http.post<JSON>('https://proj-zuul.herokuapp.com/productdb/', cart, httpOptions)
+//      .pipe(
+//        catchError(this.handleError('addHero', cart))
+//      );
+//  }
 }

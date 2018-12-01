@@ -4,7 +4,8 @@
 
   <ul>
     <li class="product" *ngFor="let product of products$">
-      <a routerLink="/details/{{product.id}}">{{ product.name }}</a>
+      <a routerLink="/details/{{ product.id }}">{{ product.name }}</a>
+      <a href="{{ product.lo_rez }}"><img src="{{ product.lo_rez }}" title="source: imgur.com" /></a>
       <ul routerLink="/details/:id">
         <li>${{ product.price }}</li>
         <li>In Stock: {{ product.stock }}</li>
