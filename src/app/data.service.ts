@@ -54,6 +54,6 @@ export class DataService {
 
   confirmPurchase () {
     const payload = { 'user' : this.user, 'products' : this.cart, 'amounts' : this.amounts };
-    return this.http.post<String>('http://localhost:8097/process', payload);
+    return this.http.post<String>('https://proj-finalize.herokuapp.com/process', payload);
   }
 }

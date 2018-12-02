@@ -19,5 +19,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   confirmPurchase() {
+    this.data.confirmPurchase().subscribe(val => console.log(val));
   }
 }
