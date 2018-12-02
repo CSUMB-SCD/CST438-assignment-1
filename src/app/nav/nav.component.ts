@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../data.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -10,11 +12,11 @@ import { Router, NavigationEnd } from '@angular/router';
 export class NavComponent implements OnInit {
 
   currentUrl: string;
+  message: string;
 
   constructor(private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
   ngOnInit() {}
-
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { NavCompComponent } from '../nav-comp/nav-comp.component';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-productlist',
@@ -11,7 +11,15 @@ import { NavCompComponent } from '../nav-comp/nav-comp.component';
 })
 
 export class ProductlistComponent implements OnInit {
-  products$: Object;
+
+  products$: {id: String,
+    name: String,
+    description: String,
+    lo_rez: String,
+    stock: number,
+    price: number,
+    catagory: {};
+    manufacturer: {}}[];
   component$: String;
 
   constructor(private data: DataService, private route: ActivatedRoute) {
@@ -27,7 +35,14 @@ export class ProductlistComponent implements OnInit {
   }
 
   filter(data) {
-
     return data;
+  }
+
+  addToCart(id: String) {
+    for (const product of this.products$) {
+      if (product['id'] === id) {
+        this.data.changeMessage(product);
+      }
+    }
   }
 }

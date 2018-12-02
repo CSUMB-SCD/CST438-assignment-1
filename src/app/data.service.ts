@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  private addToCartSource = new BehaviorSubject<Object>(null);
+  addToCartMessage = this.addToCartSource.asObservable();
+
   constructor(private http: HttpClient) { }
+
+  changeMessage(product: Object) {
+    this.addToCartSource.next(product);
+  }
 
   getUsers() {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
@@ -21,6 +31,13 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get('http://127.0.0.1:8081/Product');
+    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
+
+//  addHero (cart: JSON): Observable<JSON> {
+//    return this.http.post<JSON>('https://proj-zuul.herokuapp.com/productdb/', cart, httpOptions)
+//      .pipe(
+//        catchError(this.handleError('addHero', cart))
+//      );
+//  }
 }
