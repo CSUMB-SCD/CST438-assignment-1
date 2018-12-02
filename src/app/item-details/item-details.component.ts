@@ -14,6 +14,11 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.product$ = this.data.detail;
+    console.log(this.product$);
+
+  }
+  addToCart(product) {
+    this.data.addToCart(product, 1);
   }
 
 }
