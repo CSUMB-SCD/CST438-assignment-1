@@ -1,20 +1,17 @@
-<app-nav-comp></app-nav-comp>
 <div id="content">
   <h1>Items</h1>
 
   <ul>
     <li class="product" *ngFor="let product of products$">
-      <a routerLink="/details/{{product.id}}">{{ product.name }}</a>
-      <ul routerLink="/details/:id">
+      <img src="{{ product.lo_rez }}" title="source: imgur.com" />
+      <a (click)="details( product );">{{ product.name }}</a>
+      <ul routerLink="/details/{{ product.id }}">
         <li>${{ product.price }}</li>
         <li>In Stock: {{ product.stock }}</li>
       </ul>
       <ul>
         <li>
-          <a routerLink="/checkout">Buy</a>
-        </li>
-        <li>
-          <a routerLink="/checkout">Add To Cart</a>
+          <button (click)="addToCart( product );">Add To Cart</button>
         </li>
       </ul>
     </li>

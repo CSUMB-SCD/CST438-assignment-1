@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../data.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -16,5 +18,4 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {}
-
 }
