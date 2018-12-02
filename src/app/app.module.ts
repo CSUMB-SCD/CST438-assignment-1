@@ -14,6 +14,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ThankYouComponent,
     ItemDetailsComponent,
     SignInComponent,
+    LogoutComponent,
   ],
   imports: [
     ReactiveFormsModule,

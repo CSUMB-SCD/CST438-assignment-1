@@ -10,11 +10,15 @@ import { Router, NavigationEnd } from '@angular/router';
 export class NavComponent implements OnInit {
 
   currentUrl: string;
+  submitted: boolean;
 
   constructor(private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
+    this.submitted = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
 }

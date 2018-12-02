@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <nav style="margin:auto;">
   <ul>
     <li>
@@ -24,8 +23,12 @@
       </a>
     </li>
     <li>
-      <a routerLink="signin" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Sign-in </strong> </span>
+      <a routerLink="logout" *ngIf="submitted !== false" routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Log-out </strong> </span>
       </a>
+    </li>
+    <li>
+        <a routerLink="signin" *ngIf="submitted !== true" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Log in </strong> </span>
+        </a>
     </li>
   </ul>
 </nav>

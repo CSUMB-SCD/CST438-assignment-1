@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { NavCompComponent } from './nav-comp/nav-comp.component';
@@ -11,7 +12,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: UsersComponent
   },
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'thankyou',
     component: ThankYouComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   },
   {
     path: 'signin',
