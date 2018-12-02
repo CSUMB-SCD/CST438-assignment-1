@@ -8,17 +8,17 @@ import { DataService } from '../data.service';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  product$ ;
+  product$;
+  amount: number;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService) {}
 
   ngOnInit() {
     this.product$ = this.data.detail;
     console.log(this.product$);
 
   }
-  addToCart(product) {
-    this.data.addToCart(product, 1);
+  addToCart() {
+    this.data.addToCart(this.product$, this.amount);
   }
-
 }

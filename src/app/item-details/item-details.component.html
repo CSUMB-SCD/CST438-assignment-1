@@ -16,7 +16,8 @@
       </ul>
       <ul>
         <li>
-          <button (click)="addToCart( product$ );">Add To Cart</button>
+          <input [(ngModel)]="amount" type="number" id="amount" min="1">
+          <button (click)="addToCart();">Add To Cart</button>
         </li>
       </ul>
     </li>
