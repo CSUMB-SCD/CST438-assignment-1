@@ -9,13 +9,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
 
-  private messageSource = new BehaviorSubject<Object>(null);
-  currentMessage = this.messageSource.asObservable();
+  private addToCartSource = new BehaviorSubject<Object>(null);
+  addToCartMessage = this.addToCartSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
   changeMessage(product: Object) {
-    this.messageSource.next(product);
+    this.addToCartSource.next(product);
   }
 
   getUsers() {

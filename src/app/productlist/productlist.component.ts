@@ -12,7 +12,14 @@ import { NavComponent } from '../nav/nav.component';
 
 export class ProductlistComponent implements OnInit {
 
-  products$: Array<Object>;
+  products$: {id: String,
+    name: String,
+    description: String,
+    lo_rez: String,
+    stock: number,
+    price: number,
+    catagory: {};
+    manufacturer: {}}[];
   component$: String;
 
   constructor(private data: DataService, private route: ActivatedRoute) {
@@ -32,7 +39,7 @@ export class ProductlistComponent implements OnInit {
   }
 
   addToCart(id: String) {
-    for (let product of this.products$) {
+    for (const product of this.products$) {
       if (product['id'] === id) {
         this.data.changeMessage(product);
       }
