@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,13 +9,20 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
 
+  product;
   private addToCartSource = new BehaviorSubject<Object>(null);
   addToCartMessage = this.addToCartSource.asObservable();
+  private setDetailSource = new BehaviorSubject<Object>(null);
+  setDetailMessage = this.setDetailSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  changeMessage(product: Object) {
+  addToCart(product: Object) {
     this.addToCartSource.next(product);
+  }
+  setDetail(product: Object) {
+    this.product = product;
+    this.setDetailSource.next(product);
   }
 
   getUsers() {
@@ -34,10 +41,7 @@ export class DataService {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
 
-//  addHero (cart: JSON): Observable<JSON> {
-//    return this.http.post<JSON>('https://proj-zuul.herokuapp.com/productdb/', cart, httpOptions)
-//      .pipe(
-//        catchError(this.handleError('addHero', cart))
-//      );
-//  }
+  confirmPurchase () {
+    return this.http.post('http://localhost:8097/process', 'cart');
+  }
 }

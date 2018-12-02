@@ -23,5 +23,6 @@ export class CheckoutComponent implements OnInit {
   Cart(product: Object) {
     this.cart.push(product);
     console.log(this.cart);
+    this.data.confirmPurchase();
   }
 }
