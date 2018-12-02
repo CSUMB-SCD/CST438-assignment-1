@@ -1,8 +1,17 @@
 <p>
-  carousel works!
+  carousel works!  {{myHero}}
 </p>
-
-<app-carousel *ngIf="images">
+<!-- <ul>
+  <div *ngFor = "let image of ima">
+    <img src="{{image.name}}" title="imgaes array" />
+    {{image.age}}
+  </div>
+  <li *ngFor = "let image of ill">
+    <img src="{{image}}" title="imgaes array" />
+    {{image}}
+  </li>
+</ul> -->
+<ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
         <img [src]="images[0]" alt="Random first slide">
         <div class="carousel-caption">
@@ -24,4 +33,4 @@
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
       </ng-template>
-</app-carousel>
+</ngb-carousel>
