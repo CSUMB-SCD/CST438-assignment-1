@@ -11,7 +11,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: UsersComponent
   },
   {
@@ -42,6 +42,9 @@ const routes: Routes = [
     path: 'signin',
     component: SignInComponent
   },
+
+   // otherwise redirect to home
+   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

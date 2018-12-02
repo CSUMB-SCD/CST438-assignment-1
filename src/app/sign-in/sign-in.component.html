@@ -3,10 +3,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-
-	<title>Login Page</title>
-   <!--Made with love by Mutiullah Samim -->
-
 	<!--Bootsrap 4 CDN-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -15,7 +11,58 @@
 
   <title>Project 1 | Sign-in </title>
 
+  <div class="alert alert-info" style="text-align:center; font-size:1.8em">
+      <strong>Username: admin</strong>
+      <br />
+      <strong>Password: admin</strong>
+  </div>
+
+
+
+
+  <div class="container">
+    	<div class="d-flex justify-content-center h-100">
+          <div class="card">
+              <div class="card-header">
+                <h3 style="text-align:center">Sign In</h3>
+              </div>
+              <div class="card-body">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+          </div>
+          <label style="color:black;"for="username">Username</label><br>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <br>
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+      </div>
+      <div class="input-group form-group">
+          <div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+					</div>
+          <label style="color:black;" for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+      </div>
+      <div class="form-group" style="text-align:center">
+          <button class="btn login_btn" [disabled]="loading" >Login</button>
+          <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </div>
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+</div>
+  </div>
+</div>
+
+<!--
 <body>
+
+
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -27,28 +74,29 @@
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" style="font-size:1.3em" class="form-control" placeholder="username">
+            </div>
+
+            <input type="text" style="font-size:1.3em" class="form-control" ng-model="user.username" placeholder="username" name="userName" required>
 
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input style="font-size:1.3em" type="password" class="form-control" placeholder="password">
+						<input style="font-size:1.3em" type="password" class="form-control" ng-model="user.password" placeholder="password" required>
 					</div>
-					<!-- <div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div> -->
+
 					<div class="form-group" style="text-align:center">
-						<input style="font-size:2em" type="submit" value="Login" class="btn login_btn">
+            <input style="font-size:2em"  type="submit" value="Login" class="btn login_btn">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-</body>
+
+</body> -->
+
 
 
 

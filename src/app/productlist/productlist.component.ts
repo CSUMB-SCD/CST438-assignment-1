@@ -1,8 +1,8 @@
+import { NavCompComponent } from './../nav-comp/nav-comp.component';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { NavCompComponent } from '../nav-comp/nav-comp.component';
 
 @Component({
   selector: 'app-productlist',

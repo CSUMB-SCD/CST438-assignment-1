@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -35,13 +36,15 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 })
 export class UsersComponent implements OnInit {
 
-  users$: Object;
+  user$: any;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe( params => this.user$ = params.id);
+   }
 
-  ngOnInit() {
-    this.data.getUsers().subscribe(
-      data => this.users$ = data
+   ngOnInit() {
+    this.data.getUser(this.user$).subscribe(
+      data => this.user$ = data
     );
   }
 

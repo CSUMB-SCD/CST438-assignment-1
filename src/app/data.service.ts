@@ -9,7 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get('https://proj-usersdb.herokuapp.com/User');
   }
 
   getUser(userId) {
@@ -22,6 +22,10 @@ export class DataService {
 
   getProducts() {
     return this.http.get('http://127.0.0.1:8081/Product');
+  }
+
+  getProduct(productId) {
+    return this.http.get('http://127.0.0.1:8081/Product/' + productId);
   }
 
 }

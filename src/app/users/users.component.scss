@@ -11,3 +11,22 @@
   opacity: .20;
 }
 
+p , h1{
+  text-align:center;
+  padding:35px;
+}
+
+.column, {
+  margin:auto;
+  text-align:center;
+  float: center;
+  width: 20%;
+  padding:25px;
+}
+
+/* Clear floats after the columns */
+.row:after, {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -2,18 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-.imgHolder{
-  display: inline-block;
-  background: black;
-}
-.item-fade{
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  vertical-align: top;
-  transition: opacity 0.3s;
-  -webkit-transition: opacity 0.3s;
-  opacity: .20;
-}
 
 body{
   background-image: url("/assets/img/backgroundsignin.jpg");
@@ -25,21 +13,20 @@ body{
   }
 
 .container{
-height: 100%;
 align-content: center;
 }
 
 .card{
-height: 600px;
+height: 300px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: lightyellow !important;
 }
 
 .card-header h3{
-color: white;
-font-size:5em;
+color: black;
+font-size:2em;
 }
 
 
@@ -63,13 +50,14 @@ width: 100px;
 
 .login_btn:hover{
 color: black;
-background-color: white;
-}
-
-.links{
-color: white;
+background-color: gold;
 }
 
 .links a{
 margin-left: 4px;
+}
+
+.my-form.ng-invalid {
+  background: red;
+  color:white;
 }
