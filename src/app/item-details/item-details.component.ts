@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
@@ -7,28 +8,36 @@ import { DataService } from '../data.service';
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.scss']
 })
-export class ItemDetailsComponent  {
+export class ItemDetailsComponent implements OnInit {
 
   myHeros = 'mark mavic';
   name = 'a string';
-  items$: Object = {name: 'james', stock: '3', price: '33.0', namufacturer: 'Asus', description: 'its an item you know' };
-  currentUrl: string;
+  item$: String;
 
-//   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
-//     this.route.params.subscribe(
-//        params => this.items$ = params.id
-//     );
-//     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
-//  }
+  product$: Object;
+  // products$: {id: String,
+  //   name: String,
+  //   description: String,
+  //   lo_rez: String,
+  //   stock: number,
+  //   price: number,
+  //   catagory: {};
+  //   manufacturer: {}}[];
+  component$: String;
 
-  // ngOnInit() {
-  //   this.data.getItemDetails(this.items$).subscribe(
-  //     data => this.items$ = this.filter(data)
-  //   );
-  // }
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe(
+      params => this.item$ = params.id
+    );
+   }
+
+  ngOnInit() {
+    this.data.getItemDetails(this.item$).subscribe(
+      data => this.product$ = this.filter(data)
+    );
+  }
 
   filter(data) {
-
     return data;
   }
 

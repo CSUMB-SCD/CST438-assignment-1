@@ -3,7 +3,7 @@
 <ul>
   <li *ngFor="let user of users$">
     <a routerLink="/details/{{user.id}}">{{ user.name }}</a>
-
+    <a routerLink="/item-details/5c02fa29084dbf000440cf38"> Item link</a>
     <ul [@listStagger]="users$">
       <li>{{ user.email }}</li>
       <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>

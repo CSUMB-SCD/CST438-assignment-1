@@ -1,24 +1,23 @@
 <div id="wrapper">
-    <!-- <h1>Item Name {{ items.name }} , {{name}}</h1> -->
+    <h1>Item Name {{ product$.name }} , {{name}}</h1>
 
     <h1>{{myHeros}}</h1>
   <div id="left">
-    <!-- <h1> images module </h1> -->
     <app-carousel></app-carousel>
   </div>
 
   <div id="right">
     <ul>
-      <!-- <li><strong>Stock:</strong> {{ items$.stock }}</li>
-      <li><strong>Price:</strong> {{ items$.price }}</li>
-      <li><strong>Manufacturer:</strong> {{ items$.manufacturer.name }}</li> -->
+      <li><strong>Stock:</strong> {{ product$.stock }}</li>
+      <li><strong>Price:</strong> {{ product$.price }}</li>
+      <li><strong>Manufacturer:</strong> {{ product$.manufacturer }}</li>
     </ul>
-    <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'">
-      <i class="material-icons">shopping_cart</i> Add to cart </a>
+    <!-- <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'"> -->
+      <!-- <i class="material-icons">shopping_cart</i> Add to cart </a> -->
   </div>
 
 
 </div>
 <div>
-  <!-- <p>description {{items$.description }}</p> -->
+  <p>description {{product$.description }}</p>
 </div>

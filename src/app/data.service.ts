@@ -20,7 +20,9 @@ export class DataService {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
 
+
+
   getItemDetails(itemId) {
-    return this.http.get('https://proj-products.herokuapp.com/Product' + itemId);
+    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/' + itemId);
   }
 }
