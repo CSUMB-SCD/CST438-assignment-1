@@ -9,7 +9,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
 
-  product;
+  detail;
+  cart = [];
+  amounts = [];
+  user = {'id': 'longid', 'name': 'myname', 'password' : 'mypassword', 'credits' : 300000.99};
+
   private addToCartSource = new BehaviorSubject<Object>(null);
   addToCartMessage = this.addToCartSource.asObservable();
   private setDetailSource = new BehaviorSubject<Object>(null);
@@ -17,11 +21,18 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  addToCart(product: Object) {
-    this.addToCartSource.next(product);
+  addToCart(product: Object, amount: number) {
+    const index = this.cart.findIndex(p => p.id === product.id);
+    if (index === -1) {
+      this.cart.push(product);
+      this.amounts.push(amount);
+    } else {
+      this.amounts[index] += amount;
+    }
   }
+
   setDetail(product: Object) {
-    this.product = product;
+    this.detail = product;
     this.setDetailSource.next(product);
   }
 
@@ -42,6 +53,7 @@ export class DataService {
   }
 
   confirmPurchase () {
-    return this.http.post('http://localhost:8097/process', 'cart');
+    const payload = { 'user' : this.user, 'products' : this.cart, 'amounts' : this.amounts };
+    return this.http.post<String>('http://localhost:8097/process', payload);
   }
 }

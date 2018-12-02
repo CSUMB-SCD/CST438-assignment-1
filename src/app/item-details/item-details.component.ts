@@ -13,7 +13,7 @@ export class ItemDetailsComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.product$ = this.data.product;
+    this.product$ = this.data.detail;
   }
 
 }

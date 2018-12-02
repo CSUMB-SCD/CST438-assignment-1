@@ -38,12 +38,13 @@ export class ProductlistComponent implements OnInit {
     return data;
   }
 
-  addToCart(id: String) {
-    for (const product of this.products$) {
-      if (product['id'] === id) {
-        this.data.addToCart(product);
-      }
-    }
+  addToCart(product) {
+    this.data.addToCart(product, 1);
+    // for (const product of this.products$) {
+    //   if (product['id'] === id) {
+    //     this.data.addToCart(product);
+    //   }
+    // }
   }
 
   details(product) {
@@ -51,3 +52,4 @@ export class ProductlistComponent implements OnInit {
     this.router.navigate(['/details']);
   }
 }
+// this.data.confirmPurchase().subscribe(val => console.log(val));
