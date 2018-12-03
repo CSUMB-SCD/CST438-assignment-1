@@ -23,14 +23,6 @@ export class CheckoutComponent implements OnInit {
     this.numProducts = 0;
   }
 
-  getTotal() {
-    var total = 0.0;
-    for(let item in this.products$) {
-     
-    }
-    return total;
-  }
-
   calculate() {
     var num1= ((document.getElementById("num1") as HTMLInputElement).value);
   }

@@ -271,11 +271,11 @@
     </div><br>
 
     <div>
-      <input name="firstname" type="text" placeholder="First Name" maxlength="12" >
+      <input [(ngModel)]="firstName" name="firstname" type="text" placeholder="First Name" maxlength="12" >
     </div><br>
 
     <div>
-      <input name="lastname" type="text" placeholder="Last Name" maxlength="15">
+      <input [(ngModel)]="lastName" name="lastname" type="text" placeholder="Last Name" maxlength="15">
     </div><br>
 
     <div>
@@ -480,7 +480,7 @@
 
 
       <div id="button_div">
-        <button id="completeButton" type="submit" routerLink="/thankyou" (click)="passCart(products$)">Place Order</button>
+        <button id="completeButton" type="submit" routerLink="/thankyou" (click)="passNames(firstName, lastName)">Place Order</button>
       </div>
   </div>
 
@@ -494,15 +494,15 @@
     <div id="right_inner_div">
       <div id="item_desc">
         <div *ngFor="let item of products$">
-          <img src="{{ item.lo_rez }}"/><br>
+          <br><img src="{{ item.lo_rez }}"/><br>
           {{ item.name }}<br>
           {{ item.price }} <br>
-          <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
-        </div>
-        <div>
+          <!-- <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
+          -->  </div>
+        <!-- <div>
           Total: {{ getTotal() }}<br>
           <button (click)="calculate()">Recalculate Total</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
