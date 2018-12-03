@@ -10,6 +10,7 @@ import { ProductlistComponent } from './productlist/productlist.component';
 })
 export class DataService {
 
+  private apiURL = 'https://proj-usersdb.herokuapp.com/User';
   detail;
   cart: {id: String,
     name: String,
@@ -47,6 +48,14 @@ export class DataService {
     this.detail = product;
   }
 
+  getUsers() {
+    return this.http.get(this.apiURL);
+  }
+
+  getUser(userName) {
+    return this.http.get(this.apiURL + userName);
+  }
+
   getProducts() {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
@@ -59,4 +68,9 @@ export class DataService {
   getItemDetails(itemId) {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/' + itemId);
   }
+
+  getProduct(productId) {
+    return this.http.get('http://127.0.0.1:8081/Product/' + productId);
+  }
+
 }

@@ -1,8 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable, BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-productlist',
@@ -31,4 +29,3 @@ export class ProductlistComponent implements OnInit {
     this.router.navigate(['/details']);
   }
 }
-// this.data.confirmPurchase().subscribe(val => console.log(val));

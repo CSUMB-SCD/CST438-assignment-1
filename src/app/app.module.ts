@@ -10,9 +10,11 @@ import { ProductlistComponent } from './productlist/productlist.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
-import { FormsModule } from '@angular/forms';
-import { CarouselComponent } from './carousel/carousel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CheckoutComponent,
     ThankYouComponent,
     ItemDetailsComponent,
-    CarouselComponent,
+    SignInComponent,
+    LogoutComponent,
+    HomeComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     NgbModule,
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

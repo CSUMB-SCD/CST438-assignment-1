@@ -1,24 +1,25 @@
-<nav>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<nav style="margin:auto;">
   <ul>
     <li>
-      <a routerLink="" routerLinkActive="/">
-        <i>Home</i>
+      <a routerLink="home" routerLinkActive="activated"><span class="glyphicon glyphicon-home"> <strong> Home </strong></span>
       </a>
     </li>
     <li>
-      <a routerLink="products" routerLinkActive="activated">
-        <i>Components</i>
+      <a routerLink="products" routerLinkActive="activated"><span class="glyphicon glyphicon-th"> <strong> Components </strong></span>
       </a>
     </li>
     <li>
-      <a routerLink="cart" routerLinkActive="activated">
-        <i>Cart</i>
+      <a routerLink="cart" routerLinkActive="activated"><span class="glyphicon glyphicon-shopping-cart"> <strong> ShoppingCart</strong></span>
       </a>
     </li>
     <li>
-      <a routerLink="Signin" [class.activated]="currentUrl == '/signin'">
-        <i>Sign in</i>
+      <a routerLink="logout" *ngIf="submitted !== false" routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Log-out </strong> </span>
       </a>
+    </li>
+    <li>
+        <a routerLink="signin" *ngIf="submitted !== true" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Log in </strong> </span>
+        </a>
     </li>
   </ul>
 </nav>
