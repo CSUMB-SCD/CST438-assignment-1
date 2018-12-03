@@ -14,31 +14,20 @@ export class ItemDetailsComponent implements OnInit {
   name = 'a string';
   item$: String;
 
-  product$: Object;
-  // products$: {id: String,
-  //   name: String,
-  //   description: String,
-  //   lo_rez: String,
-  //   stock: number,
-  //   price: number,
-  //   catagory: {};
-  //   manufacturer: {}}[];
-  component$: String;
+  product$;
 
-  constructor(private data: DataService, private route: ActivatedRoute) {
-    this.route.params.subscribe(
-      params => this.item$ = params.id
-    );
-   }
+  constructor(private data: DataService) {}
 
-  ngOnInit() {
-    this.data.getItemDetails(this.item$).subscribe(
-      data => this.product$ = this.filter(data)
-    );
+  addToCart(product) {
+    this.data.addToCart(product, 1);
+    // for (const product of this.products$) {
+    //   if (product['id'] === id) {
+    //     this.data.addToCart(product);
+    //   }
+    // }
   }
-
-  filter(data) {
-    return data;
+  ngOnInit() {
+    this.product$ = this.data.detail;
   }
 
 }

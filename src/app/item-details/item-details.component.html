@@ -1,27 +1,20 @@
-<!-- <div id="wrapper"> -->
-    <!-- <h1>Item Name {{ product$.name }} , {{name}}</h1> -->
+<h1>{{ product$.manufacturer.name }} {{ product$.name }}</h1>
 
-    <h1>{{myHeros}}</h1>
-  <div id="left">
-    <app-carousel></app-carousel>
-  </div>
+<div id="left">
+  <app-carousel></app-carousel>
+  <p> {{product$.description }}</p>
+</div>
 
-  <div id="right">
-    <ul>
-      <!-- <li><strong>Stock:</strong> {{ product$.stock }}</li> -->
-      <!-- <li><strong>Price:</strong> {{ product$.price }}</li> -->
-      <!-- <li><strong>Manufacturer:</strong> {{ product$.manufacturer }}</li> -->
-      <li><strong> Place holder</strong></li>
-      <li><strong> Place holder</strong></li>
-      <li><strong> Place holder</strong></li>
-      <li><strong> Add To cart</strong></li>
-    </ul>
-    <!-- <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'"> -->
-      <!-- <i class="material-icons">shopping_cart</i> Add to cart </a> -->
-  </div>
-
-
-<!-- </div> -->
-<div>
-  <!-- <p>description {{product$.description }}</p> -->
+<div id="right">
+  <ul>
+    <li><strong>Stock:</strong> {{ product$.stock }}</li>
+    <li><strong>Price:</strong> {{ product$.price }}</li>
+    <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
+    <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li>
+    <li>
+      <!-- <button (click)="addToCart( product );">Add To Cart</button> -->
+    </li>
+  </ul>
+  <!-- <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'"> -->
+    <!-- <i class="material-icons">shopping_cart</i> Add to cart </a> -->
 </div>
