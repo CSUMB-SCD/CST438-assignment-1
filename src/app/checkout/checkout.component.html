@@ -492,10 +492,10 @@
     </div>
     <div id="right_inner_div">
       <div id="item_desc">
-        <div *ngFor="let item of products$">
+        <div *ngFor="let item of data.cart">
           <br><img src="{{ item.lo_rez }}"/><br>
           {{ item.name }}<br>
-          {{ item.price }} <br>
+          {{ item.price }} X {{ item.quantity }} = {{ item.price * item.quantity }}<br>
           <!-- <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
           -->  </div>
         <!-- <div>
