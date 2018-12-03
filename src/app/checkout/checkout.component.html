@@ -495,13 +495,8 @@
         <div *ngFor="let item of data.cart">
           <br><img src="{{ item.lo_rez }}"/><br>
           {{ item.name }}<br>
-          {{ item.price }} X {{ item.quantity }} = {{ item.price * item.quantity }}<br>
-          <!-- <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
-          -->  </div>
-        <!-- <div>
-          Total: {{ getTotal() }}<br>
-          <button (click)="calculate()">Recalculate Total</button>
-        </div> -->
+          {{ item.price }} X <input [(ngModel)]="item.quantity" type="number" placeholder="item.quantity" length="10" min="0"> = {{ item.price * item.quantity }}<br><br><br>
+           </div>
       </div>
     </div>
     <div id="button_div">
