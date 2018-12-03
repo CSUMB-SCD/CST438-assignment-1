@@ -1,0 +1,32 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="" routerLinkActive="/">
+        <i>Home</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="products" routerLinkActive="activated">
+        <i>Components</i>
+      </a>
+    </li><!--
+    <li>
+      <input type="text" placeholder="Search...">
+    </li>
+    <li>
+      <a class="material-icons" routerLink="productlist">
+        search
+      </a>
+    </li>-->
+    <li>
+      <a routerLink="cart" routerLinkActive="activated">
+        <i>Cart</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="Signin" [class.activated]="currentUrl == '/signin'">
+        <i>Sign in</i>
+      </a>
+    </li>
+  </ul>
+</nav>

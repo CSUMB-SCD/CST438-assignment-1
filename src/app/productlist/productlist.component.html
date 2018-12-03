@@ -1,0 +1,19 @@
+<div id="content">
+  <h1>Items</h1>
+
+  <ul>
+    <li class="product" *ngFor="let product of products$">
+      <img src="{{ product.lo_rez }}" title="source: imgur.com" />
+      <a (click)="details( product );">{{ product.name }}</a>
+      <ul routerLink="/details/{{ product.id }}">
+        <li>${{ product.price }}</li>
+        <li>In Stock: {{ product.stock }}</li>
+      </ul>
+      <ul>
+        <li>
+          <button (click)="addToCart( product );">Add To Cart</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
