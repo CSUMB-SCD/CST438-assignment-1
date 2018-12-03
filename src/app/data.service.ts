@@ -22,11 +22,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   addToCart(product: Object, amount: number) {
-<<<<<<< HEAD
     const index = this.cart.findIndex(p => p.id === 'product.id');
-=======
-    const index = this.cart.findIndex(p => p.id === product.id);
->>>>>>> 5419604ebf50c7355c1f3cf0413ba9abb6d5784c
     if (index === -1) {
       this.cart.push(product);
       this.amounts.push(amount);
@@ -40,21 +36,6 @@ export class DataService {
     this.setDetailSource.next(product);
   }
 
-<<<<<<< HEAD
-=======
-  getUsers() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
-  }
-
-  getUser(userId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/' + userId);
-  }
-
-  getPosts() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts');
-  }
-
->>>>>>> 5419604ebf50c7355c1f3cf0413ba9abb6d5784c
   getProducts() {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
