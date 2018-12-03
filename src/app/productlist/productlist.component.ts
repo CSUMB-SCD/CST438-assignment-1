@@ -40,11 +40,6 @@ export class ProductlistComponent implements OnInit {
 
   addToCart(product) {
     this.data.addToCart(product, 1);
-    // for (const product of this.products$) {
-    //   if (product['id'] === id) {
-    //     this.data.addToCart(product);
-    //   }
-    // }
   }
 
   details(product) {

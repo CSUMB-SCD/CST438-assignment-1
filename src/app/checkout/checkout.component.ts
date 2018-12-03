@@ -9,6 +9,9 @@ import { DataService } from '../data.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  products$; Object
+  numProducts; int
+
   currentUrl: string;
 
   constructor(private data: DataService, private router: Router) {
@@ -20,5 +23,9 @@ export class CheckoutComponent implements OnInit {
 
   confirmPurchase() {
     this.data.confirmPurchase().subscribe(val => console.log(val));
+  }
+
+  calculate() {
+    var num1= ((document.getElementById("num1") as HTMLInputElement).value);
   }
 }
