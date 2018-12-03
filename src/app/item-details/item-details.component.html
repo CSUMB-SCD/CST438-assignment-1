@@ -1,25 +1,23 @@
-<div id="content">
-  <h1>Items</h1>
+<h1>{{ product$.manufacturer.name }} {{ product$.name }}</h1>
 
+<div id="left">
+  <img [src]="product$.hi_rez[index]" alt="Random first slide">
+  <div class="minor-nav">
+    <button class="butt" (click)="changeImage(-1)">❮ Prev</button>
+    <button class="butt" (click)="changeImage(1)">Next ❯</button>
+  </div>
+</div>
+
+<div id="right">
   <ul>
-    <li class="product">
-      <ul *ngFor="let url of product$.hi_rez">
-        <img src="{{ url }}" title="source: imgur.com" />
-      </ul>
-      <ul>
-        <li>{{ product$.name }}</li>
-        <li>In Stock: {{ product$.description }}</li>
-      </ul>
-      <ul>
-        <li>${{ product$.price }}</li>
-        <li>In Stock: {{ product$.stock }}</li>
-      </ul>
-      <ul>
-        <li>
-          <input [(ngModel)]="amount" type="number" id="amount" min="1">
-          <button (click)="addToCart();">Add To Cart</button>
-        </li>
-      </ul>
-    </li>
+    <li><strong>Stock:</strong> {{ product$.stock }}</li>
+    <li><strong>Price:</strong> {{ product$.price }}</li>
+    <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
+    <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li>
+    <li><strong>Description:</strong> {{ product$.description }}</li>
+    <li>
+        <input [(ngModel)]="amount" type="number" id="amount" min="1">
+        <button (click)="addToCart();">Add To Cart</button>
+      </li>
   </ul>
 </div>

@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'thankyou',
     component: ThankYouComponent
   },
+  {
+    path: 'items-details/:id',
+    component: ItemDetailsComponent
+  }
 ];
 
 @NgModule({

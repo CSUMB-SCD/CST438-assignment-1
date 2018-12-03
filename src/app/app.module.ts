@@ -11,6 +11,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { FormsModule } from '@angular/forms';
+import { CarouselComponent } from './carousel/carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     CheckoutComponent,
     ThankYouComponent,
     ItemDetailsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

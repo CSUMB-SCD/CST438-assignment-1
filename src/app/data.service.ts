@@ -31,9 +31,9 @@ export class DataService {
     }
   }
 
-  setDetail(product: Object) {
+  setDetail(product: {id: String, name: String, description: String, lo_rez: String, stock: number,
+      price: number, catagory: {name: String}, manufacturer: {name: String}}, hi_rez: String[]) {
     this.detail = product;
-    this.setDetailSource.next(product);
   }
 
   getProducts() {
@@ -43,5 +43,11 @@ export class DataService {
   confirmPurchase () {
     const payload = { 'user' : this.user, 'products' : this.cart, 'amounts' : this.amounts };
     return this.http.post<String>('https://proj-finalize.herokuapp.com/process', payload);
+  }
+
+
+
+  getItemDetails(itemId) {
+    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/' + itemId);
   }
 }
