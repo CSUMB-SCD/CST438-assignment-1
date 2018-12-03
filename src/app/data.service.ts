@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
+import { ProductlistComponent } from './productlist/productlist.component';
 
 
 @Injectable({
@@ -10,18 +11,22 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
 
   detail;
-  cart = [];
+  cart: {id: String,
+    name: String,
+    description: String,
+    lo_rez: String,
+    stock: number,
+    price: number,
+    catagory: {};
+    manufacturer: {},
+    hi_rez: String[]} [] = [];
   amounts = [];
   user = {'id': 'longid', 'name': 'myname', 'password' : 'mypassword', 'credits' : 300000.99};
 
-  private addToCartSource = new BehaviorSubject<Object>(null);
-  addToCartMessage = this.addToCartSource.asObservable();
-  private setDetailSource = new BehaviorSubject<Object>(null);
-  setDetailMessage = this.setDetailSource.asObservable();
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  addToCart(product: Object, amount: number) {
+  addToCart(product: {id: String, name: String, description: String, lo_rez: String, stock: number, price: number,
+    catagory: {}, manufacturer: {}, hi_rez: String[]}, amount: number) {
     const index = this.cart.findIndex(p => p.id === 'product.id');
     if (index === -1) {
       this.cart.push(product);
@@ -29,6 +34,11 @@ export class DataService {
     } else {
       this.amounts[index] += amount;
     }
+  }
+
+  deleteCart() {
+    this.cart = [];
+    this.amounts = [];
   }
 
   setDetail(product: {id: String, name: String, description: String, lo_rez: String, stock: number,

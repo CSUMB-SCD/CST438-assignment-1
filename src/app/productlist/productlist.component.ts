@@ -12,30 +12,14 @@ import { NavComponent } from '../nav/nav.component';
 
 export class ProductlistComponent implements OnInit {
 
-  products$: {id: String,
-    name: String,
-    description: String,
-    lo_rez: String,
-    stock: number,
-    price: number,
-    catagory: {};
-    manufacturer: {}}[];
-  component$: String;
+  products$;
 
-  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) {
-    this.route.params.subscribe(
-      params => this.component$ = params.component
-    );
-   }
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.data.getProducts().subscribe(
-      data => this.products$ = this.filter(data)
+      data => this.products$ = data
     );
-  }
-
-  filter(data) {
-    return data;
   }
 
   addToCart(product) {

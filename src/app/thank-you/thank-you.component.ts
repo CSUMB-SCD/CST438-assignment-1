@@ -9,9 +9,7 @@ import { DataService } from '../data.service';
 })
 export class ThankYouComponent implements OnInit {
 
-  userName$: Object;
   products$: Object;
-  emptyList$: Array<Object> = [];
 
   currentUrl: string;
 
@@ -20,11 +18,11 @@ export class ThankYouComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.addToCartMessage.subscribe(message => this.products$ = message);
+    this.products$ = this.data.cart;
   }
 
   clearList() {
-    this.data.changeMessage(this.emptyList$);
+    this.data.deleteCart();
   }
 
 }

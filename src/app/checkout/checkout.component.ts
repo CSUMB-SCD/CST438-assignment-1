@@ -9,8 +9,11 @@ import { DataService } from '../data.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  products$; Object
-  numProducts; int
+  products$; Object;
+  numProducts; int;
+
+  firstName: String;
+  lastName: String;
 
   currentUrl: string;
 
@@ -18,14 +21,21 @@ export class CheckoutComponent implements OnInit {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   confirmPurchase() {
-    this.data.confirmPurchase().subscribe(val => console.log(val));
+    this.data.confirmPurchase().subscribe(val => this.confirmPurchaseResult(val));
   }
 
-  calculate() {
-    var num1= ((document.getElementById("num1") as HTMLInputElement).value);
+  confirmPurchaseResult(val) {
+    if (val) {
+
+    } else {
+
+    }
+  }
+
+  passNames(firstName: String, lastName: String) {
+
   }
 }
