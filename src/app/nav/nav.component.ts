@@ -1,5 +1,7 @@
+import { SignInComponent } from './../sign-in/sign-in.component';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,16 +11,21 @@ import { Router, NavigationEnd } from '@angular/router';
 
 export class NavComponent implements OnInit {
 
-  currentUrl: string;
-  submitted: boolean;
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private data: DataService) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
-    this.submitted = false;
+    this.submitted = this.data.isSubmitted;
   }
 
-  ngOnInit() {
+  currentUrl: string;
+  submitted: boolean;
+  signinComponent: typeof SignInComponent;
 
+  ngOnInit() {
+    if (this.submitted === true) {
+      this.submitted = true;
+    }
+
+    console.log('HERE ~~~~~> ' + this.submitted);
   }
 
 }

@@ -7,16 +7,24 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   private apiURL = 'https://proj-usersdb.herokuapp.com/User';
+  public submitted: boolean;
   constructor(private http: HttpClient) { }
 
   getUsers() {
     return this.http.get(this.apiURL);
   }
 
-  getUser(userName) {
-    return this.http.get(this.apiURL + userName);
-  }
+  // getUser(userName) {
+  //   return this.http.get(this.apiURL + userName);
+  // }
 
+
+  public get isSubmitted() {
+    return this.submitted;
+  }
+  public set isSubmitted(value: boolean) {
+    this.submitted = value;
+  }
 
   // getUserData(user, password): User {
   //   this.http.get<User>('https://cst438userdata.herokuapp.com/getuserdata/' + user + '/' + password)

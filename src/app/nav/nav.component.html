@@ -18,17 +18,19 @@
         search
       </a>
     </li> -->
+
     <li>
       <a routerLink="cart" routerLinkActive="activated"><span class="glyphicon glyphicon-shopping-cart"> <strong> ShoppingCart</strong></span>
       </a>
     </li>
     <li>
-      <a routerLink="logout" *ngIf="submitted !== false" routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Log-out </strong> </span>
+      <a routerLink="signin" [attr.routerLinkActive]="this.submitted ? false: 'active-link'"><span class="glyphicon glyphicon-user"> <strong> Login </strong> </span>
+      </a>
+  </li>
+    <li>
+      <a routerLink="logout"  [attr.routerLinkActive]="this.submitted ? true: 'active-link'"><span class="glyphicon glyphicon-log-out"> <strong> Logout </strong> </span>
       </a>
     </li>
-    <li>
-        <a routerLink="signin" *ngIf="submitted !== true" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Log in </strong> </span>
-        </a>
-    </li>
+
   </ul>
 </nav>
