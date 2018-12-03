@@ -2,8 +2,9 @@
   // background: rgb(67, 66, 68);
   float: left;
   width: 65%;
-  height: 50%;
+  height: 100%;
   overflow: hidden;
+  margin: 10px;
 
   ul {
       list-style-type: none;
@@ -31,8 +32,9 @@
   // background: rgb(67, 66, 68);
   height: 50%;
   overflow: hidden;
-  border-style: solid;
+  // border-style: solid;
   padding: 10px;
+  margin: 10px;
   ul {
       list-style-type: none;
       padding: 0;

@@ -1,5 +1,6 @@
 .carousel-wrapper {
   overflow: hidden;
+  overflow-x: auto;
 }
 .carousel {
   list-style: none;
@@ -8,7 +9,7 @@
   width: auto;
 }
 .carousel-inner {
-  display: flex;
+  display: float;
 }
 
 button.calendar, button.calendar:active {
