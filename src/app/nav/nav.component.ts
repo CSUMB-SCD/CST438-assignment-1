@@ -24,8 +24,6 @@ export class NavComponent implements OnInit {
     if (this.submitted === true) {
       this.submitted = true;
     }
-
-    console.log('HERE ~~~~~> ' + this.submitted);
   }
 
 }
