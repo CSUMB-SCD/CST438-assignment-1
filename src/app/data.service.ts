@@ -32,7 +32,7 @@ export class DataService {
   }
 
   setDetail(product: {id: String, name: String, description: String, lo_rez: String, stock: number,
-      price: number, catagory: {name: String}, manufacturer: {name: String}}, hi_rez: String[]) {
+      price: number, catagory: {name: String}, manufacturer: {name: String}, hi_rez: String[]}) {
     this.detail = product;
   }
 

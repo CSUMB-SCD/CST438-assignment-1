@@ -1,4 +1,18 @@
 <h1>{{ product$.manufacturer.name }} {{ product$.name }}</h1>
+<ul>
+  <li><strong>Stock:</strong> {{ product$.stock }}</li>
+  <li><strong>Price:</strong> {{ product$.price }}</li>
+  <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
+  <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li>
+
+</ul>
+<ul>
+  <li><strong>Description:</strong> {{ product$.description }}</li>
+  <li>
+    <input [(ngModel)]="amount" type="number" id="amount" min="1">
+    <button class="butt" (click)="addToCart();">Add To Cart</button>
+  </li>
+</ul>
 
 <div id="left">
   <img [src]="product$.hi_rez[index]" alt="Random first slide">
@@ -8,16 +22,4 @@
   </div>
 </div>
 
-<div id="right">
-  <ul>
-    <li><strong>Stock:</strong> {{ product$.stock }}</li>
-    <li><strong>Price:</strong> {{ product$.price }}</li>
-    <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
-    <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li>
-    <li><strong>Description:</strong> {{ product$.description }}</li>
-    <li>
-        <input [(ngModel)]="amount" type="number" id="amount" min="1">
-        <button (click)="addToCart();">Add To Cart</button>
-      </li>
-  </ul>
-</div>
+
