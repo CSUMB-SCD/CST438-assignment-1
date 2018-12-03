@@ -12,9 +12,10 @@ export class DataService {
   private addToCartSource = new BehaviorSubject<Object>(null);
   addToCartMessage = this.addToCartSource.asObservable();
 
+
   constructor(private http: HttpClient) { }
 
-  changeMessage(product: Object) {
+  changeMessage(product: Array<Object>) {
     this.addToCartSource.next(product);
   }
 

@@ -476,8 +476,12 @@
 
       <div>
         <input name="postalCode" type="text" placeholder="Zip Code" maxlength="5">
-      </div><br>
+      </div><br><br>
 
+
+      <div id="button_div">
+        <button id="completeButton" type="submit" routerLink="/thankyou" (click)="passCart(products$)">Place Order</button>
+      </div>
   </div>
 
   <div id="right_div">
@@ -489,20 +493,22 @@
     </div>
     <div id="right_inner_div">
       <div id="item_desc">
-        <img src="https://vignette.wikia.nocookie.net/blogclan-2/images/b/b9/Random-image-15.jpg/revision/latest?cb=20160706220047">
-        <ul>
-          <li>Item Name</li>
-          <li>Item Price</li>
-          <li>Item Description</li>
-          <li><input  name="amount" type="number" placeholder="-" length="10" min="0"> amount</li>
-          <li><button type="submit">Remove Item</button></li>
-        </ul>
+        <div *ngFor="let item of products$">
+          <img src="{{ item.lo_rez }}"/><br>
+          {{ item.name }}<br>
+          {{ item.price }} <br>
+          <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
+        </div>
+        <div>
+          Total: {{ getTotal() }}<br>
+          <button (click)="calculate()">Recalculate Total</button>
+        </div>
       </div>
     </div>
-    <div id="button_div">
-      <button type="submit" routerLink="/thankyou">Place Order</button>
-    </div>
-
   </div>
 
+
+
 </div>
+
+

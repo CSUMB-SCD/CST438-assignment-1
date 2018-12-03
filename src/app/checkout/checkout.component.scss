@@ -17,20 +17,18 @@
 
 #right_inner_div {
     img{
-      float:left;
+      float:center;
         width: 45%;
     }
     ul{
-        float: right;
+        float: center;
         width: 45%;
     }
 }
 #button_div{
-    position: absolute;
-    bottom: 0;
-    align-items: center;
+
 }
-button{
+#completeButton{
     background-color: gray;
     border: 2px solid black;
     color: white;
@@ -61,7 +59,7 @@ select {
 }
 
 img{
-    height: 250px;
+    height: 100px;
     width: 50px;
 }
 

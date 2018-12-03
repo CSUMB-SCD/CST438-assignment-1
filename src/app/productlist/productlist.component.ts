@@ -22,6 +22,8 @@ export class ProductlistComponent implements OnInit {
     manufacturer: {}}[];
   component$: String;
 
+  myCart: Array<Object> = [];
+
   constructor(private data: DataService, private route: ActivatedRoute) {
     this.route.params.subscribe(
       params => this.component$ = params.component
@@ -38,11 +40,9 @@ export class ProductlistComponent implements OnInit {
     return data;
   }
 
-  addToCart(id: String) {
-    for (const product of this.products$) {
-      if (product['id'] === id) {
-        this.data.changeMessage(product);
-      }
-    }
+  addToCart(product: Object) {
+    this.myCart.push(product);
+    this.data.changeMessage(this.myCart); 
+    console.log(this.myCart);
   }
 }

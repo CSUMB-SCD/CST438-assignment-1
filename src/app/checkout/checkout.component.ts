@@ -9,19 +9,29 @@ import { DataService } from '../data.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  products$; Object
+  numProducts; int
+
   currentUrl: string;
-  cart: {}[] = [];
 
   constructor(private data: DataService, private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
   ngOnInit() {
-    this.data.addToCartMessage.subscribe(message => this.Cart(message));
+    this.data.addToCartMessage.subscribe(message => this.products$ = message);
+    this.numProducts = 0;
   }
 
-  Cart(product: Object) {
-    this.cart.push(product);
-    console.log(this.cart);
+  getTotal() {
+    var total = 0.0;
+    for(let item in this.products$) {
+     
+    }
+    return total;
+  }
+
+  calculate() {
+    var num1= ((document.getElementById("num1") as HTMLInputElement).value);
   }
 }
