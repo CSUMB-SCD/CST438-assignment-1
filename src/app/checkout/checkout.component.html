@@ -496,13 +496,10 @@
         <div *ngFor="let item of products$">
           <br><img src="{{ item.lo_rez }}"/><br>
           {{ item.name }}<br>
+          {{ item.description }}<br>
           {{ item.price }} <br>
-          <!-- <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
-          -->  </div>
-        <!-- <div>
-          Total: {{ getTotal() }}<br>
-          <button (click)="calculate()">Recalculate Total</button>
-        </div> -->
+          <input name="amount" type="number" placeholder="1" length="10" min="0" (click)="getTotal()"> Quantity<br><br>
+           </div>
       </div>
     </div>
   </div>
