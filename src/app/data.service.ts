@@ -26,14 +26,12 @@ export class DataService {
     manufacturer: {},
     hi_rez: String[],
     quantity: number} [] = [];
-  user = {'name': 'admin1', 'password' : 'admin1', 'credits' : 300000.99};
+  user: {id: String, username: String, credit: number};
 
   constructor(private http: HttpClient) {}
 
   addToCart(product: {id: String, name: String, description: String, lo_rez: String, stock: number, price: number,
     catagory: {}, manufacturer: {}, hi_rez: String[], quantity: number}, amount: number) {
-      console.log(this.cart);
-      console.log(product);
     const index = this.cart.findIndex(p => p.id === product.id);
     if (index === -1) {
       product.quantity = 1;
@@ -41,8 +39,6 @@ export class DataService {
     } else {
       this.cart[index].quantity = this.cart[index].quantity + amount;
     }
-    console.log(this.cart);
-
   }
 
   deleteCart() {
@@ -51,14 +47,14 @@ export class DataService {
 
   setDetail(product: {id: String, name: String, description: String, lo_rez: String, stock: number,
       price: number, catagory: {name: String}, manufacturer: {name: String}, hi_rez: String[]}) {
+        console.log(product);
+
     this.detail = product;
   }
 
   validate(user: String, pass: String) {
     const payload = { 'username' : user, 'password' : pass};
-    console.log(payload);
-
-    return this.http.post<String>(this.user_service + 'validate', payload);
+    return this.http.post(this.user_service + 'validate', payload);
   }
 
   getProducts() {
@@ -66,7 +62,9 @@ export class DataService {
   }
 
   confirmPurchase () {
+    console.log(this.cart);
+
     const payload = { 'user' : this.user, 'products' : this.cart};
-    return this.http.post('https://proj-zuul.herokuapp.com/finalize/process', payload);
+    return this.http.post(this.finalize + 'process', payload);
   }
 }

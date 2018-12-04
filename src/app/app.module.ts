@@ -15,6 +15,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { HomeComponent } from './home/home.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HomeComponent } from './home/home.component';
     SignInComponent,
     LogoutComponent,
     HomeComponent,
+    ConfirmComponent,
   ],
   imports: [
     ReactiveFormsModule,

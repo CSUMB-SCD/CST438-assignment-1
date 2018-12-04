@@ -11,54 +11,49 @@
   <title>Project 1 | Sign-in </title>
 <!-- main app container -->
 
-
-
-
-<body>
-  <div class="container">
-      <div class="d-flex justify-content-center h-100">
-        <div class="card">
-          <div class="card-header" style="text-align:center">
-            <h3> Please log in using your credentials </h3>
-          </div>
-          <div class="card-body">
-              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-user"></i></span>
-                </div>
-                <label style="color:white; padding:10px;"  for="userName">Username</label>
-                        <input type="text" class="form-control" name="userName" [(ngModel)]="model.userName" #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.invalid }" required minlength="5"/>
-                        <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
-                            <div *ngIf="model.userName.errors.required">Username is required</div>
-                            <div *ngIf="model.userName.errors.minlength">Username must be at least 5 characters</div>
-                        </div>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header" style="text-align:center">
+          <h3> Please log in using your credentials </h3>
+        </div>
+        <div class="card-body">
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-key"></i></span>
-                </div>
-                <label style="color:white; padding:10px;" for="password">Password</label>
-                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="5" />
-                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                            <div *ngIf="model.password.errors.required">Password is required</div>
-                            <div *ngIf="model.password.errors.minlength">Password must be at least 5 characters</div>
-                        </div>
+              <label style="color:white; padding:10px;"  for="userName">Username</label>
+                      <input type="text" class="form-control" name="userName" [(ngModel)]="model.userName" #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.invalid }" required minlength="5"/>
+                      <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
+                          <div *ngIf="model.userName.length === 0">Username is required</div>
+                          <div *ngIf="model.userName.length < 5">Username must be at least 5 characters</div>
+                      </div>
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <div class="col-md-8 text-center">
-                <input type="submit" value="Login" class="btn float-right login_btn">
-              </div>
-            </form>
-          </div>
-          <div class="alert alert-info" style="font-size:1.6em; width:400px; height:100px; text-align:center;" role="alert">
-              <strong>LOGIN CREDENTIALS</strong> (3 POSSIBLE LOGINS)
-              username: <strong>admin1 - admin2 - admin3</strong>
-              password: <strong>admin1 - admin2 - admin3</strong>
-          </div>
-      </div>
+              <label style="color:white; padding:10px;" for="password">Password</label>
+                      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="5" />
+                      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                          <div *ngIf="model.password.length === 0">Password is required</div>
+                          <div *ngIf="model.password.length < 5">Password must be at least 5 characters</div>
+                      </div>
+            </div>
+            <div class="col-md-8 text-center">
+              <input type="submit" value="Login" class="btn float-right login_btn">
+            </div>
+          </form>
+        </div>
+        <div class="alert alert-info" style="font-size:1.6em; width:400px; height:100px; text-align:center;" role="alert">
+            <strong>LOGIN CREDENTIALS</strong> (3 POSSIBLE LOGINS)
+            username: <strong>admin1 - admin2 - admin3</strong>
+            password: <strong>admin1 - admin2 - admin3</strong>
+        </div>
     </div>
   </div>
-</body>
+</div>
 
 <!-- <div *ngIf="submitted === true">
 

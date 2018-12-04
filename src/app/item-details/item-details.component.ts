@@ -18,9 +18,14 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.product$ = this.data.detail;
+    console.log(this.data.detail);
+
   }
 
   addToCart() {
+    if (!(this.amount > 0)) {
+      this.amount = 1;
+    }
     this.data.addToCart(this.product$, this.amount);
   }
 

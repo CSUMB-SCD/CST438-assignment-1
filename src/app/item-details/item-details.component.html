@@ -4,7 +4,6 @@
   <li><strong>Price:</strong> {{ product$.price }}</li>
   <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
   <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li>
-
 </ul>
 <ul>
   <li><strong>Description:</strong> {{ product$.description }}</li>
@@ -14,8 +13,8 @@
   </li>
 </ul>
 
-<div id="left">
-  <img [src]="product$.hi_rez[index]" alt="Random first slide">
+<div id="left" *ngIf="product$.hi_rez !== undefined">
+  <img [src]="product$.hi_rez[index]">
   <div class="minor-nav">
     <button class="butt" (click)="changeImage(-1)">❮ Prev</button>
     <button class="butt" (click)="changeImage(1)">Next ❯</button>

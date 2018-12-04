@@ -1,6 +1,9 @@
 #main_checkout_div {
     text-align: center;
-    alignment: center;
+    padding-top: 10px;
+    height: 1000px;
+    background-color: lightgray;
+    border-radius: 3px;
 }
 
 #left_div {
@@ -45,6 +48,7 @@ input{
   font-size: 17px;
   height: inherit;
   text-align: center;
+  min-width: 10px;
 }
 
 select {
@@ -59,8 +63,4 @@ select {
 img{
     height: 100px;
     width: 50px;
-}
-
-input[type=number]{
-    width: 35px;
 }

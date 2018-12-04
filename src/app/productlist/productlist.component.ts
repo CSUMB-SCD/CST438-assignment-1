@@ -25,6 +25,7 @@ export class ProductlistComponent implements OnInit {
   }
 
   details(product) {
+    console.log(this.products$);
     this.data.setDetail(product);
     this.router.navigate(['/details']);
   }

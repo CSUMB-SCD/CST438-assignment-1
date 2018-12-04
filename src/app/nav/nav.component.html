@@ -9,18 +9,15 @@
       <a routerLink="products" routerLinkActive="activated"><span class="glyphicon glyphicon-th"> <strong> Components </strong></span>
       </a>
     </li>
-    <li>
-      <a routerLink="cart" routerLinkActive="activated"><span class="glyphicon glyphicon-shopping-cart"> <strong> ShoppingCart</strong></span>
-      </a>
-    </li>
-    <li>
+    <li *ngIf="data.user === undefined">
       <a routerLink="signin" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Login </strong> </span>
       </a>
-  </li>
-    <li>
-      <a routerLink="logout"  routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Logout </strong> </span>
+    </li>
+    <li *ngIf="data.user !== undefined">
+      <a routerLink="cart" routerLinkActive="activated"><span class="glyphicon glyphicon-shopping-cart"> <strong> Cart</strong></span>
+      </a>
+      <a (click)="logout()"routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Logout </strong> </span>
       </a>
     </li>
-
   </ul>
 </nav>

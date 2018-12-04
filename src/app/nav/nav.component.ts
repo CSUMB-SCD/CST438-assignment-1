@@ -12,10 +12,13 @@ export class NavComponent implements OnInit {
 
   currentUrl: string;
 
-  constructor(private router: Router, private data: DataService) {
+  constructor(private router: Router, public data: DataService) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
   ngOnInit() {}
 
+  logout() {
+    this.data.user = undefined;
+  }
 }

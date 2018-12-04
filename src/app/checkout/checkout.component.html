@@ -1,5 +1,3 @@
-
-
 <div id="main_checkout_div">
   <h1>CHECKOUT</h1>
 
@@ -476,11 +474,16 @@
       <div>
         <input name="postalCode" type="text" placeholder="Zip Code" maxlength="5">
       </div><br><br>
+      <div>
+        {{ phone }}
+        <input [(ngModel)]="phone" type="range" min="1111111111" max="9999999999" value="8317777777">
+      </div>
   </div>
 
   <div id="right_div">
     <div>
         <h2>Shopping Cart</h2>
+        <h4>Credit: {{ data.user.credit }}</h4>
     </div>
     <div id="right_inner_div">
       <div id="item_desc">
@@ -490,6 +493,9 @@
           {{ item.price }} X <input [(ngModel)]="item.quantity" type="number" value="{{ item.quantity }}" length="10" min="0"> = {{ item.price * item.quantity }}<br><br><br>
            </div>
       </div>
+    </div>
+    <div *ngFor="let reason of reasons$">
+      <h4>{{ reason }}</h4>
     </div>
     <div id="button_div">
       <button class="butt" type="submit" (click)="confirmPurchase();">Place Order</button>

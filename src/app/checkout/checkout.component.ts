@@ -11,6 +11,8 @@ export class CheckoutComponent implements OnInit {
 
   firstName: String;
   lastName: String;
+  reasons$: String[];
+  phone: number;
 
   currentUrl: string;
 
@@ -25,12 +27,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   confirmPurchaseResult(val) {
-    console.log(val);
-
-    if (val) {
-
-    } else {
-
+    this.reasons$ = val;
+    if (val.length === 0) {
+      this.router.navigate(['/confirm']);
     }
   }
 

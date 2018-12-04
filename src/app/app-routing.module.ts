@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './confirm/confirm.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
@@ -11,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
   },
   {
@@ -50,7 +51,10 @@ const routes: Routes = [
     path: 'signin',
     component: SignInComponent
   },
-
+  {
+    path: 'confirm',
+    component: ConfirmComponent
+  },
    // otherwise redirect to home
    { path: '**', redirectTo: '' }
 ];
