@@ -53,20 +53,19 @@ export class DataService {
     return this.http.get(this.apiURL);
   }
 
-  // getUser(userName) {
-  //   return this.http.get(this.apiURL + userName);
-  // }
+  getUser(userName) {
+    return this.user;
+    // return this.http.get(this.apiURL + userName);
+  }
+
+  validate(user: String, pass: String) {
+    const payload = { 'username' : user, 'password' : pass};
+    return this.http.post<String>('http://localhost:8031/validate', payload);
+  }
 
   getProducts() {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
   }
-  public get isSubmitted() {
-    return this.submitted;
-  }
-  public set isSubmitted(value: boolean) {
-    this.submitted = value;
-  }
-
   confirmPurchase () {
     const payload = { 'user' : this.user, 'products' : this.cart};
     return this.http.post<String>('https://proj-finalize.herokuapp.com/process', payload);
@@ -80,4 +79,13 @@ export class DataService {
     return this.http.get('http://127.0.0.1:8081/Product/' + productId);
   }
 
+
+
+
+  public get isSubmitted() {
+    return this.submitted;
+  }
+  public set isSubmitted(value: boolean) {
+    this.submitted = value;
+  }
 }
