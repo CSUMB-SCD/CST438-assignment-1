@@ -476,17 +476,9 @@
       <div>
         <input name="postalCode" type="text" placeholder="Zip Code" maxlength="5">
       </div><br><br>
-
-
-      <div id="button_div">
-        <button id="completeButton" type="submit" routerLink="/thankyou" (click)="passNames(firstName, lastName)">Place Order</button>
-      </div>
   </div>
 
   <div id="right_div">
-    <!-- This will be changed into a for loop later
-         to show all items in the item list
-         but for now will just place one item for example. -->
     <div>
         <h2>Shopping Cart</h2>
     </div>
@@ -495,18 +487,14 @@
         <div *ngFor="let item of data.cart">
           <br><img src="{{ item.lo_rez }}"/><br>
           {{ item.name }}<br>
-          {{ item.price }} X <input [(ngModel)]="item.quantity" type="number" placeholder="item.quantity" length="10" min="0"> = {{ item.price * item.quantity }}<br><br><br>
+          {{ item.price }} X <input [(ngModel)]="item.quantity" type="number" value="{{ item.quantity }}" length="10" min="0"> = {{ item.price * item.quantity }}<br><br><br>
            </div>
       </div>
     </div>
     <div id="button_div">
-      <button type="submit" (click)="confirmPurchase();">Place Order</button>
+      <button class="butt" type="submit" (click)="confirmPurchase();">Place Order</button>
     </div>
-
   </div>
-
-
-
 </div>
 
 

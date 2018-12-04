@@ -11,11 +11,9 @@ import { DataService } from '../data.service';
 export class NavComponent implements OnInit {
 
   currentUrl: string;
-  submitted: boolean;
 
   constructor(private router: Router, private data: DataService) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
-    this.submitted = this.data.isSubmitted;
   }
 
   ngOnInit() {}

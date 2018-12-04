@@ -25,6 +25,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   confirmPurchaseResult(val) {
+    console.log(val);
+
     if (val) {
 
     } else {

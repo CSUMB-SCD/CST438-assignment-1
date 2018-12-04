@@ -10,7 +10,10 @@ import { ProductlistComponent } from './productlist/productlist.component';
 })
 export class DataService {
 
-  private apiURL = 'https://proj-usersdb.herokuapp.com/User';
+  private user_service = 'https://proj-zuul.herokuapp.com/user-service/';
+  private product_service = 'https://proj-zuul.herokuapp.com/product-service/';
+  private finalize = 'https://proj-zuul.herokuapp.com/finalize/';
+
   detail;
   public submitted: boolean;
   cart: {id: String,
@@ -23,7 +26,7 @@ export class DataService {
     manufacturer: {},
     hi_rez: String[],
     quantity: number} [] = [];
-  user = {'id': 'longid', 'name': 'myname', 'password' : 'mypassword', 'credits' : 300000.99};
+  user = {'name': 'admin1', 'password' : 'admin1', 'credits' : 300000.99};
 
   constructor(private http: HttpClient) {}
 
@@ -38,6 +41,8 @@ export class DataService {
     } else {
       this.cart[index].quantity = this.cart[index].quantity + amount;
     }
+    console.log(this.cart);
+
   }
 
   deleteCart() {
@@ -49,43 +54,19 @@ export class DataService {
     this.detail = product;
   }
 
-  getUsers() {
-    return this.http.get(this.apiURL);
-  }
-
-  getUser(userName) {
-    return this.user;
-    // return this.http.get(this.apiURL + userName);
-  }
-
   validate(user: String, pass: String) {
     const payload = { 'username' : user, 'password' : pass};
-    return this.http.post<String>('http://localhost:8031/validate', payload);
+    console.log(payload);
+
+    return this.http.post<String>(this.user_service + 'validate', payload);
   }
 
   getProducts() {
-    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
+    return this.http.get(this.product_service + 'Product');
   }
+
   confirmPurchase () {
     const payload = { 'user' : this.user, 'products' : this.cart};
-    return this.http.post<String>('https://proj-finalize.herokuapp.com/process', payload);
-  }
-
-  getItemDetails(itemId) {
-    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/' + itemId);
-  }
-
-  getProduct(productId) {
-    return this.http.get('http://127.0.0.1:8081/Product/' + productId);
-  }
-
-
-
-
-  public get isSubmitted() {
-    return this.submitted;
-  }
-  public set isSubmitted(value: boolean) {
-    this.submitted = value;
+    return this.http.post('https://proj-zuul.herokuapp.com/finalize/process', payload);
   }
 }
