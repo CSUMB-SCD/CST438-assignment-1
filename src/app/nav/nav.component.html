@@ -14,12 +14,13 @@
       </a>
     </li>
     <li>
-      <a routerLink="logout" *ngIf="submitted !== false" routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Log-out </strong> </span>
+      <a routerLink="signin" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Login </strong> </span>
+      </a>
+  </li>
+    <li>
+      <a routerLink="logout"  routerLinkActive="activated"><span class="glyphicon glyphicon-log-out"> <strong> Logout </strong> </span>
       </a>
     </li>
-    <li>
-        <a routerLink="signin" *ngIf="submitted !== true" routerLinkActive="activated"><span class="glyphicon glyphicon-user"> <strong> Log in </strong> </span>
-        </a>
-    </li>
+
   </ul>
 </nav>

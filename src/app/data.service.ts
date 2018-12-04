@@ -12,6 +12,7 @@ export class DataService {
 
   private apiURL = 'https://proj-usersdb.herokuapp.com/User';
   detail;
+  public submitted: boolean;
   cart: {id: String,
     name: String,
     description: String,
@@ -52,12 +53,18 @@ export class DataService {
     return this.http.get(this.apiURL);
   }
 
-  getUser(userName) {
-    return this.http.get(this.apiURL + userName);
-  }
+  // getUser(userName) {
+  //   return this.http.get(this.apiURL + userName);
+  // }
 
   getProducts() {
     return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
+  }
+  public get isSubmitted() {
+    return this.submitted;
+  }
+  public set isSubmitted(value: boolean) {
+    this.submitted = value;
   }
 
   confirmPurchase () {

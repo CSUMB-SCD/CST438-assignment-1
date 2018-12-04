@@ -1,7 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from '../data.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -14,10 +13,11 @@ export class NavComponent implements OnInit {
   currentUrl: string;
   submitted: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private data: DataService) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
-    this.submitted = false;
+    this.submitted = this.data.isSubmitted;
   }
 
   ngOnInit() {}
+
 }

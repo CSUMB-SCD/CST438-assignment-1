@@ -1,7 +1,9 @@
+
 import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -11,6 +13,7 @@ import { DataService } from '../data.service';
 
 
 export class SignInComponent implements OnInit {
+
   model: any = {};
   submitted: boolean;
   myUserName: string;
@@ -18,6 +21,7 @@ export class SignInComponent implements OnInit {
 
   // All users in DB.
   users$: any;
+
 
   constructor( private route: Router, private data: DataService, private router: ActivatedRoute) {
     this.router.params.subscribe( () => this.users$);
@@ -37,13 +41,19 @@ export class SignInComponent implements OnInit {
 
   }
 
+  getSubmitted(): boolean {
+    return this.submitted;
+  }
+
   filter(data) {
     return data;
   }
 
+
   onSubmit() {
 
     this.submitted = true;
+    this.data.isSubmitted = true;
 
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
     // alert(JSON.stringify(this.model.userName));
@@ -57,7 +67,7 @@ export class SignInComponent implements OnInit {
 
 
 
-    if (this.submitted) {
+    if (this.submitted === true) {
 
       // exporting variable to another file.
      for (let i = 0; i < this.users$.length; i++ ) {
