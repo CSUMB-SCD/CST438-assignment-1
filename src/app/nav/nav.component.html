@@ -23,6 +23,6 @@
 </nav>
 <div style="all:unset!important;">
 <span class="glyphicon glyphicon-user" style="margin: auto; text-align:center; color:black; font-size:1.2em; padding:3px;" *ngIf="data.user !== undefined"> 
-      Hello, {{data.user.username }} 
+      Hello, <strong>{{data.user.username }}</strong>      <span style="margin:auto; text-align:center;"> Credit: <strong>${{data.user.credit}}</strong> </span>
 </span>
 </div>
