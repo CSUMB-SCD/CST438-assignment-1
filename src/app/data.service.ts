@@ -6,24 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  private apiURL = 'https://proj-usersdb.herokuapp.com/User';
+  private user_service = 'https://proj-zuul.herokuapp.com/user-service/';
   public submitted: boolean;
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get(this.apiURL);
-  }
 
-  // getUser(userName) {
-  //   return this.http.get(this.apiURL + userName);
-  // }
-
-
-  public get isSubmitted() {
-    return this.submitted;
-  }
-  public set isSubmitted(value: boolean) {
-    this.submitted = value;
+  validate(user: String, pass: String) {
+    const payload = { 'username' : user, 'password' : pass};
+    return this.http.post(this.user_service + 'validate', payload);
   }
 
   // getUserData(user, password): User {

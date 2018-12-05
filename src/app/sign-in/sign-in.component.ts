@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
   myUserName: string;
   myPassword: string;
 
+
   // All users in DB.
   users$: any;
 
@@ -51,35 +52,20 @@ export class SignInComponent implements OnInit {
 
 
   onSubmit() {
+    this.data.validate(this.model.userName, this.model.password).subscribe(
+     data => this.onValidation(data)
+    );
+  }
 
-    this.submitted = true;
-    this.data.isSubmitted = true;
+  onValidation(data) {
+    console.log(data);
 
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
-    // alert(JSON.stringify(this.model.userName));
-
-    // Storing username and password as a String variable.
-    this.myUserName = this.model.userName;
-    this.myPassword = this.model.password;
-
-    // Alert containing username works.
-    //  alert(JSON.stringify(this.users$.username));
-
-
-
-    if (this.submitted === true) {
-
-      // exporting variable to another file.
-     for (let i = 0; i < this.users$.length; i++ ) {
-        if (this.users$[i].username === this.myUserName && this.users$[i].password === this.myPassword ) {
-          alert(JSON.stringify('Hi ' + this.myUserName + ' . Welcome back!'));
-          this.route.navigate(['/home']);
-          return;
-        }
-      }
-      alert(JSON.stringify('Incorrect username or password. Try again!'));
+    if (data.username === null) {
+      this.failmessage = 'Login Invalid How Could You Fail This We Have The Logins Below';
+      return;
     }
-
+    this.data.user = data;
+    this.route.navigate(['/home']);
   }
 
 //   public onLoginClick() {

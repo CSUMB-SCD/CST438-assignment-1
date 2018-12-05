@@ -43,9 +43,8 @@ export class UsersComponent implements OnInit {
    }
 
    ngOnInit() {
-    this.data.getUser(this.user$).subscribe(
-      data => this.user$ = data
-    );
+    // this.data.getUser(this.user$).subscribe(
+    //   data => this.user$ = data
   }
 
 }

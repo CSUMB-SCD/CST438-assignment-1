@@ -1,8 +1,6 @@
-import { SignInComponent } from './../sign-in/sign-in.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from '../data.service';
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -21,9 +19,10 @@ export class NavComponent implements OnInit {
   signinComponent: typeof SignInComponent;
 
   ngOnInit() {
-    if (this.submitted === true) {
-      this.submitted = true;
-    }
+  }
+
+  logout() {
+    this.data.user = undefined;
   }
 
 }

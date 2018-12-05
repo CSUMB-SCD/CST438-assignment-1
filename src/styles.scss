@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
 body {
      margin: 0;
      background: #F2F2F2;
-     font-family: 'Montserrat', sans-serif;
+     font-family: 'Numans', sans-serif;
      height: 100vh;
 }
 
@@ -24,7 +29,7 @@ body {
                 margin-bottom: 8px;
 
                 a {
-                    font-size: 1.5em;
+                    font-size:1.8em;
                     text-decoration: none;
                     font-weight: bold;
                     color:#00A8FF;
@@ -46,8 +51,9 @@ body {
                         padding:0;
 
                         a {
-                            font-size: 1em;
-                            font-weight: 300;
+                            font-size:1.8em;
+                            // font-size: 1em;
+                            // font-weight: 300;
                         }
                     }
                 }
