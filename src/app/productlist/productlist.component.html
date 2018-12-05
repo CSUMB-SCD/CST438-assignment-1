@@ -1,15 +1,18 @@
-<ul>
-  <li class="product" *ngFor="let product of products$">
-    <img (click)="details( product );" src="{{ product.lo_rez }}" title="source: imgur.com" />
-    <a (click)="details( product );">{{ product.name }}</a>
-    <ul (click)="details( product );" routerLink="/details/{{ product.id }}">
-      <li><a>${{ product.price }}</a></li>
-      <li><a>In Stock: {{ product.stock }}</a></li>
-    </ul>
-    <ul>
-      <li>
-        <button class="butt" (click)="addToCart( product );">Add To Cart</button>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+<div id="content">
+  <ul>
+    <li class="product" *ngFor="let product of products$">
+      <img (click)="details( product );" src="{{ product.lo_rez }}" title="source: imgur.com" />
+      <ul (click)="details( product );" routerLink="/details/{{ product.id }}">
+        <li><a (click)="details( product );">{{ product.name }}</a></li>
+        <li><a>${{ product.price }}</a></li>
+        <li><a>In Stock: {{ product.stock }}</a></li>
+      </ul>
+      <ul>
+        <li>
+          <button class="butt" (click)="addToCart( product );">Add To Cart</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

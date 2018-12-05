@@ -20,8 +20,7 @@ p , h1{
   margin:auto;
   text-align:center;
   float: center;
-  width: 50%;
-  color: whitesmoke;
+  width: 40%;
 }
 
 /* Clear floats after the columns */
@@ -29,4 +28,8 @@ p , h1{
   content: "";
   display: table;
   clear: both;
+}
+
+.jumbotron {
+  margin-top: 1000px;
 }

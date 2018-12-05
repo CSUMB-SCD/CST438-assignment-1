@@ -11,6 +11,7 @@ import { DataService } from '../data.service';
 export class SignInComponent implements OnInit {
 
   model: any = {};
+  failmessage: String = '';
 
   constructor( private route: Router, private data: DataService, private router: ActivatedRoute) {}
 
@@ -23,7 +24,10 @@ export class SignInComponent implements OnInit {
   }
 
   onValidation(data) {
+    console.log(data);
+
     if (data.username === null) {
+      this.failmessage = 'Login Invalid How Could You Fail This We Have The Logins Below';
       return;
     }
     this.data.user = data;
