@@ -9,16 +9,31 @@ import { DataService } from '../data.service';
 })
 export class CheckoutComponent implements OnInit {
 
+  firstName: String;
+  lastName: String;
+  reasons$: String[];
+  phone: number;
+
   currentUrl: string;
 
-  constructor(private data: DataService, private router: Router) {
+  constructor(public data: DataService, private router: Router) {
     router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   confirmPurchase() {
-    this.data.confirmPurchase().subscribe(val => console.log(val));
+    this.data.confirmPurchase().subscribe(val => this.confirmPurchaseResult(val));
+  }
+
+  confirmPurchaseResult(val) {
+    this.reasons$ = val;
+    if (val.length === 0) {
+      this.router.navigate(['/confirm']);
+    }
+  }
+
+  passNames(firstName: String, lastName: String) {
+
   }
 }

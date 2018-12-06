@@ -1,8 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable, BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-productlist',
@@ -12,44 +10,23 @@ import { NavComponent } from '../nav/nav.component';
 
 export class ProductlistComponent implements OnInit {
 
-  products$: {id: String,
-    name: String,
-    description: String,
-    lo_rez: String,
-    stock: number,
-    price: number,
-    catagory: {};
-    manufacturer: {}}[];
-  component$: String;
+  products$;
 
-  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) {
-    this.route.params.subscribe(
-      params => this.component$ = params.component
-    );
-   }
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.data.getProducts().subscribe(
-      data => this.products$ = this.filter(data)
+      data => this.products$ = data
     );
-  }
-
-  filter(data) {
-    return data;
   }
 
   addToCart(product) {
     this.data.addToCart(product, 1);
-    // for (const product of this.products$) {
-    //   if (product['id'] === id) {
-    //     this.data.addToCart(product);
-    //   }
-    // }
   }
 
   details(product) {
+    console.log(this.products$);
     this.data.setDetail(product);
     this.router.navigate(['/details']);
   }
 }
-// this.data.confirmPurchase().subscribe(val => console.log(val));

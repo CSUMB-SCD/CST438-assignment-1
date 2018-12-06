@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
+import { ProductlistComponent } from './productlist/productlist.component';
 
 
 @Injectable({
@@ -9,51 +10,61 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
 
+  private user_service = 'https://proj-zuul.herokuapp.com/user-service/';
+  private product_service = 'https://proj-zuul.herokuapp.com/product-service/';
+  private finalize = 'https://proj-zuul.herokuapp.com/finalize/';
+
   detail;
-  cart = [];
-  amounts = [];
-  user = {'id': 'longid', 'name': 'myname', 'password' : 'mypassword', 'credits' : 300000.99};
+  public submitted: boolean;
+  cart: {id: String,
+    name: String,
+    description: String,
+    lo_rez: String,
+    stock: number,
+    price: number,
+    catagory: {};
+    manufacturer: {},
+    hi_rez: String[],
+    quantity: number} [] = [];
+  user: {id: String, username: String, credit: number};
 
-  private addToCartSource = new BehaviorSubject<Object>(null);
-  addToCartMessage = this.addToCartSource.asObservable();
-  private setDetailSource = new BehaviorSubject<Object>(null);
-  setDetailMessage = this.setDetailSource.asObservable();
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  addToCart(product: Object, amount: number) {
+  addToCart(product: {id: String, name: String, description: String, lo_rez: String, stock: number, price: number,
+    catagory: {}, manufacturer: {}, hi_rez: String[], quantity: number}, amount: number) {
     const index = this.cart.findIndex(p => p.id === product.id);
     if (index === -1) {
+      product.quantity = 1;
       this.cart.push(product);
-      this.amounts.push(amount);
     } else {
-      this.amounts[index] += amount;
+      this.cart[index].quantity = this.cart[index].quantity + amount;
     }
   }
 
-  setDetail(product: Object) {
+  deleteCart() {
+    this.cart = [];
+  }
+
+  setDetail(product: {id: String, name: String, description: String, lo_rez: String, stock: number,
+      price: number, catagory: {name: String}, manufacturer: {name: String}, hi_rez: String[]}) {
+        console.log(product);
+
     this.detail = product;
-    this.setDetailSource.next(product);
   }
 
-  getUsers() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
-  }
-
-  getUser(userId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/' + userId);
-  }
-
-  getPosts() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts');
+  validate(user: String, pass: String) {
+    const payload = { 'username' : user, 'password' : pass};
+    return this.http.post(this.user_service + 'validate', payload);
   }
 
   getProducts() {
-    return this.http.get('https://proj-zuul.herokuapp.com/product-service/Product/');
+    return this.http.get(this.product_service + 'Product');
   }
 
   confirmPurchase () {
-    const payload = { 'user' : this.user, 'products' : this.cart, 'amounts' : this.amounts };
-    return this.http.post<String>('https://proj-finalize.herokuapp.com/process', payload);
+    console.log(this.cart);
+
+    const payload = { 'user' : this.user, 'products' : this.cart};
+    return this.http.post(this.finalize + 'process', payload);
   }
 }

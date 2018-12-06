@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-thank-you',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThankYouComponent implements OnInit {
 
-  constructor() { }
+  products$: Object;
+
+  currentUrl: string;
+
+  constructor(private data: DataService, private router: Router) {
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
+  }
 
   ngOnInit() {
+    this.products$ = this.data.cart;
+  }
+
+  clearList() {
+    this.data.deleteCart();
   }
 
 }
