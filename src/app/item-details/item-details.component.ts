@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-item-details',
@@ -14,7 +15,13 @@ export class ItemDetailsComponent implements OnInit {
   amount: number;
   index = 0;
 
-  constructor(private data: DataService) {}
+  constructor(config: NgbCarouselConfig, private data: DataService) {
+    // customize default values of carousels used by this component tree
+    config.interval = 3000;
+    config.wrap = true;
+    config.keyboard = true;
+    config.pauseOnHover = true;
+  }
 
   ngOnInit() {
     this.product$ = this.data.detail;
