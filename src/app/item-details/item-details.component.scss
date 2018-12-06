@@ -58,8 +58,9 @@ ul {
 }
 
 ngb-carousel {
-  // background-color: black;
-  max-width: 600px;
+  background-color: white;
+  max-width: auto;
+  max-height: 500px;
 }
 .carousel-wrapper {
   overflow: hidden;
@@ -75,7 +76,7 @@ ngb-carousel {
 .img-car{
   // max-height: 500px;
   height: auto;
-  // width: auto;
+  width: auto;
 }
 .carousel-inner {
   display: float;
