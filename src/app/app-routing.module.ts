@@ -1,22 +1,22 @@
+import { ConfirmComponent } from './confirm/confirm.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
-import { NavCompComponent } from './nav-comp/nav-comp.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './users/users.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   {
     path: 'home',
-    component: UsersComponent
+    component: HomeComponent
   },
   {
-    path: 'details/:id',
+    path: 'details',
     component: ItemDetailsComponent
   },
   {
@@ -40,6 +40,10 @@ const routes: Routes = [
     component: ThankYouComponent
   },
   {
+    path: 'items-details/:id',
+    component: ItemDetailsComponent
+  },
+  {
     path: 'logout',
     component: LogoutComponent
   },
@@ -47,7 +51,10 @@ const routes: Routes = [
     path: 'signin',
     component: SignInComponent
   },
-
+  {
+    path: 'confirm',
+    component: ConfirmComponent
+  },
    // otherwise redirect to home
    { path: '**', redirectTo: '' }
 ];

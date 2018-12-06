@@ -5,9 +5,9 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 
   // Add this:
   animations: [
@@ -34,7 +34,7 @@ import { ActivatedRoute } from '@angular/router';
     ])
   ]
 })
-export class UsersComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   user$: any;
 
@@ -45,6 +45,7 @@ export class UsersComponent implements OnInit {
    ngOnInit() {
     // this.data.getUser(this.user$).subscribe(
     //   data => this.user$ = data
+    // );
   }
 
 }

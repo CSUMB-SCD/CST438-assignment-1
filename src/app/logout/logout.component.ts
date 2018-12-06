@@ -1,8 +1,6 @@
 import { NavComponent } from './../nav/nav.component';
-import { SignInComponent } from './../sign-in/sign-in.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavCompComponent } from '../nav-comp/nav-comp.component';
 import { DataService } from '../data.service';
 
 

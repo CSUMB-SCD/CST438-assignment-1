@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from '../data.service';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -9,20 +10,15 @@ import { DataService } from '../data.service';
 
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router, private data: DataService) {
-    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
-    this.submitted = this.data.isSubmitted;
-  }
-
   currentUrl: string;
-  submitted: boolean;
-  signinComponent: typeof SignInComponent;
 
-  ngOnInit() {
+  constructor(private router: Router, public data: DataService) {
+    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
   }
+
+  ngOnInit() {}
 
   logout() {
     this.data.user = undefined;
   }
-
 }

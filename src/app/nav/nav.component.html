@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<nav style="margin:auto;">  
+<nav style="margin:auto;">
   <ul>
     <li>
       <a routerLink="home" routerLinkActive="activated"><span class="glyphicon glyphicon-home"> <strong> Home </strong></span>
@@ -22,7 +22,9 @@
   </ul>
 </nav>
 <div style="all:unset!important;">
-<span class="glyphicon glyphicon-user" style="margin: auto; text-align:center; color:black; font-size:1.2em; padding:3px;" *ngIf="data.user !== undefined"> 
-      Hello, <strong>{{data.user.username }}</strong>      <span style="margin:auto; text-align:center;"> Credit: <strong>${{data.user.credit}}</strong> </span>
+<span class="glyphicon glyphicon-user" style="margin: auto; text-align:center; color:black; font-size:1.2em; padding:3px;" *ngIf="data.user !== undefined">
+      Hello, <strong>{{data.user.username }} </strong>      <span style="margin:auto; text-align:center;">| Credit: <strong>{{data.user.credit}}</strong> </span>
 </span>
 </div>
+
+

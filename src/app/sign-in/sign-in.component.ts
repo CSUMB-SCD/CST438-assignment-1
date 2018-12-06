@@ -1,9 +1,6 @@
-
-import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
-
 
 @Component({
   selector: 'app-sign-in',
@@ -11,45 +8,14 @@ import { DataService } from '../data.service';
   styleUrls: ['./sign-in.component.scss']
 })
 
-
 export class SignInComponent implements OnInit {
 
   model: any = {};
-  submitted: boolean;
-  myUserName: string;
-  myPassword: string;
+  failmessage: String = '';
 
+  constructor( private route: Router, private data: DataService, private router: ActivatedRoute) {}
 
-  // All users in DB.
-  users$: any;
-
-
-  constructor( private route: Router, private data: DataService, private router: ActivatedRoute) {
-    this.router.params.subscribe( () => this.users$);
-   }
-
-   ngOnInit() {
-
-    // this.data.getUser().subscribe(
-    //   data => this.userName$ = this.filter(data)
-    // );
-
-    this.data.getUsers().subscribe(
-
-      // GETTING ALL THE USERS IN AN OBJECT LIST.
-      data => this.users$ = this.filter(data)
-    );
-
-  }
-
-  getSubmitted(): boolean {
-    return this.submitted;
-  }
-
-  filter(data) {
-    return data;
-  }
-
+  ngOnInit() {}
 
   onSubmit() {
     this.data.validate(this.model.userName, this.model.password).subscribe(
@@ -67,11 +33,6 @@ export class SignInComponent implements OnInit {
     this.data.user = data;
     this.route.navigate(['/home']);
   }
-
-//   public onLoginClick() {
-//     this.route.navigate(['./home']);
-// }
-
 }
 
 
