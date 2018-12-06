@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class PostsComponent implements OnInit {
   posts$: Object;
 
+  myHeros = 'mark mavic';
   constructor(private data: DataService) { }
 
   ngOnInit() {

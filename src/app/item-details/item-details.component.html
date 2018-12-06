@@ -1,22 +1,20 @@
-<div id="wrapper">
-    <h1>Item Name {{ items$.name }}</h1>
-  <div id="left">
-    <!-- <h1> images module </h1> -->
-    <app-carousel></app-carousel>
-  </div>
+<h1>{{ product$.manufacturer.name }} {{ product$.name }}</h1>
 
-  <div id="right">
-    <ul>
-      <li><strong>Stock:</strong> {{ items$.stock }}</li>
-      <li><strong>Price:</strong> {{ items$.price }}</li>
-      <li><strong>Manufacturer:</strong> {{ items$.manufacturer.name }}</li>
-    </ul>
-    <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'">
-      <i class="material-icons">shopping_cart</i> Add to cart </a>
-  </div>
-
-
+<div id="left">
+  <app-carousel></app-carousel>
+  <p> {{product$.description }}</p>
 </div>
-<div>
-  <p>description {{items$.description }}</p>
+
+<div id="right">
+  <ul>
+    <li><strong>Stock:</strong> {{ product$.stock }}</li>
+    <li><strong>Price:</strong> {{ product$.price }}</li>
+    <li><strong>Category:</strong> {{ product$.catagory.name }}</li>
+    <!-- <li><strong>Manufacturer:</strong> {{ product$.manufacturer.name }}</li> -->
+    <li>
+      <!-- <button (click)="addToCart( product );">Add To Cart</button> -->
+    </li>
+  </ul>
+  <!-- <a routerLink="items-details/:id" [class.activated]="currentUrl == '/items-details/:perm_identity'"> -->
+    <!-- <i class="material-icons">shopping_cart</i> Add to cart </a> -->
 </div>

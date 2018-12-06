@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>
   carousel works!!!!
 </p>
@@ -31,3 +32,41 @@
       </div>
     </ng-template>
   </app-carousel>
+=======
+<!-- <p>
+  carousel works!  {{myHero}}
+</p> -->
+<!-- <ul>
+  <div *ngFor = "let image of ima">
+    <img src="{{image.name}}" title="imgaes array" />
+    {{image.age}}
+  </div>
+  <li *ngFor = "let image of ill">
+    <img src="{{image}}" title="imgaes array" />
+    {{image}}
+  </li>
+</ul> -->
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+        <img [src]="images[0]" alt="Random first slide">
+        <div class="carousel-caption">
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="images[1]" alt="Random second slide">
+        <div class="carousel-caption">
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="images[2]" alt="Random third slide">
+        <div class="carousel-caption">
+          <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </ng-template>
+</ngb-carousel>
+>>>>>>> 41faa00f49ba7db1824235aa8d91e203bf1246b2

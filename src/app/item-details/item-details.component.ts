@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
@@ -9,25 +10,24 @@ import { DataService } from '../data.service';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  items$: Object;
-  currentUrl: string;
+  myHeros = 'mark mavic';
+  name = 'a string';
+  item$: String;
 
-  constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
-    this.route.params.subscribe(
-       params => this.items$ = params.id
-    );
-    router.events.subscribe((_: NavigationEnd) => this.currentUrl = _.url);
- }
+  product$;
 
-  ngOnInit() {
-    this.data.getItemDetails(this.items$).subscribe(
-      data => this.items$ = this.filter(data)
-    );
+  constructor(private data: DataService) {}
+
+  addToCart(product) {
+    this.data.addToCart(product, 1);
+    // for (const product of this.products$) {
+    //   if (product['id'] === id) {
+    //     this.data.addToCart(product);
+    //   }
+    // }
   }
-
-  filter(data) {
-
-    return data;
+  ngOnInit() {
+    this.product$ = this.data.detail;
   }
 
 }
