@@ -1,46 +1,58 @@
-nav {
-  background: #c0780b;
-  width: 100%;
-  display: flex;
-
-  ul {
+@import url('https://fonts.googleapis.com/css?family=Numans');    
+    
+    nav {
+      background: #c0780b;
+      width: 100%;
       display: flex;
-      list-style-type: none;
-      padding-right: 40px;
-      margin: auto;
 
-      li {
+      ul {
+          display: flex;
+          list-style-type: none;
+          padding-right: 40px;
+          margin: auto;
+         
 
-          .activated {
+          li {
+            
+              .activated {
 
-            text-decoration: underline;
-            // padding: 10px;
-            // font-size: 26px;
-            color:black;
-            position: relative;
-            // box-sizing: border-box;
-            transition: all 500ms ease;
-            // text-color:black;
-            // background-origin: padding-box;
-          }
+                text-decoration: underline;
+                // padding: 10px;
+                // font-size: 26px;
+                color:black;
+                position: relative;
+                // box-sizing: border-box;
+                transition: all 500ms ease;
+                // text-color:black;
+                // background-origin: padding-box;
+              }
 
-          a {
-              padding: 36px;
-              // white-space: nowrap;
-              color: white;
-              // height: inherit;
-              // min-width: inherit;
-              text-align: center;
-              // text-decoration: none;
-              display: inline-block;
-              // padding : 80px;
-              font-size: 16px;
-              // line-height: 50px;
-              // height: 50px;
-              // min-width: 150px;
-              // margin-left: -10px;
-              // clip-path: polygon(10px 0, 100% 0, 140px 100%, 0 100%);
+              a {
+                  padding: 36px;
+                  // white-space: nowrap;
+                  color: white;
+                  // height: inherit;
+                  // min-width: inherit;
+                  text-align: center;
+                  // text-decoration: none;
+                  display: inline-block;
+                  // padding : 80px;
+                  font-size: 16px;
+                  // line-height: 50px;
+                  // height: 50px;
+                  // min-width: 150px;
+                  // margin-left: -10px;
+                  // clip-path: polygon(10px 0, 100% 0, 140px 100%, 0 100%);
+              }
+
+              input[type=text] {
+                  padding-left: 10px;
+                  margin-top: 0;
+                  margin-right: 0;
+                  border: none;
+                  font-size: 17px;
+                  height: inherit;
+              }
           }
       }
   }
-}

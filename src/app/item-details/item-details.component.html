@@ -14,13 +14,23 @@
     <button class="butt" (click)="addToCart();">Add To Cart</button>
   </li>
 </ul>
-
+<!--
 <div id="left" *ngIf="product$.hi_rez !== undefined">
   <img [src]="product$.hi_rez[index]">
   <div class="minor-nav">
     <button class="butt" (click)="changeImage(-1)">❮ Prev</button>
     <button class="butt" (click)="changeImage(1)">Next ❯</button>
   </div>
+</div> -->
+<div>
+  <ngb-carousel *ngIf="product$.hi_rez">
+    <ng-template ngbSlide *ngFor = " let im of product$.hi_rez">
+        <img src="{{im}}" alt="Random first slide" class= "img-car">
+        <div class="carousel-caption">
+          <!-- <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+        </div>
+      </ng-template>
+</ngb-carousel>
 </div>
 </div>
-
